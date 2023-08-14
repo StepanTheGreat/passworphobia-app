@@ -4,14 +4,9 @@
   const chars = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789";
 
   let phrase = "";
-  let pass = generate_password(phrase, chars, 40);
+  let pass = "";
   function onInput() {
-    if (phrase) {
-      pass = generate_password(phrase, chars, 40);
-    } else {
-      pass = "";
-    }
-    
+    pass = (phrase) ? generate_password(phrase, chars, 40) : "";
   }
 </script>
 
