@@ -10,7 +10,7 @@
     }
 </script>
 
-<div class="bg-purple-700 mx-auto">
+<div class="w-fit h-fit bg-primary">
     <input type="password" bind:value={phrase} on:input={onInput}/>
     <p>{pass}</p>
     <div>
