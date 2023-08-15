@@ -25,10 +25,10 @@
     onDestroy(() => unsubscribe());
 </script>
 
-<button class="bg-white w-16 h-16 inline-block rounded-md" on:click={action}>
+<button class="bg-primary w-16 h-16 inline-block rounded-md" on:click={action}>
     {#if type == "copy"}
-        <img class="w-full f-full" src="./copy.svg" alt="Copy">
+        <img class="w-full f-full" src="./icons/copy.svg" alt="Copy">
     {:else if type == "delete"}
-        <img class="w-full f-full" src="./delete.svg" alt="Delete">
+        <img class="w-full f-full" src="./icons/delete.svg" alt="Delete">
     {/if}
 </button>
