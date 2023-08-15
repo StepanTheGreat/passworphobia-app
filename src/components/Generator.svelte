@@ -10,7 +10,7 @@
     }
 </script>
 
-<div class="w-fit h-fit bg-primary">
+<div class="w-3/5 h-3/5 bg-secondary m-auto rounded-lg">
     <input type="password" bind:value={phrase} on:input={onInput}/>
     <p>{pass}</p>
     <div>
