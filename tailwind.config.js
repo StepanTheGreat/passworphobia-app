@@ -5,6 +5,7 @@ export default {
   theme: {
     extend: { 
       colors: {
+        "currentColor": "#FF0000",
         "text": "#faf4ef",
         "background": "#13142c",
         "primary": "#1c21aa",
