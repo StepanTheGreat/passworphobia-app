@@ -5,8 +5,8 @@
 
 <button class="bg-white w-8 h-8 inline-block rounded-md" on:click={callback}>
     {#if visible}
-        <img class="w-full f-full" src="./visible.svg" alt="Visible">
+        <img class="w-full f-full" src="./icons/visible.svg" alt="Visible">
     {:else} 
-        <img class="w-full f-full" src="./hidden.svg" alt="Hidden">
+        <img class="w-full f-full" src="./icons/hidden.svg" alt="Hidden">
     {/if}
 </button>
