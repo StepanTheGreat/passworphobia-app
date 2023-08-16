@@ -3,16 +3,18 @@
     import PassOutput from "./PassOutput.svelte";
     import PassInput from "./PassInput.svelte";
     import PassButton from "./PassButton.svelte";
-    import { storePassInput, storePassOutput, CHARS, storePassLength } from "../store";
+    import { storePassInput, storePassOutput, storePassLength, storePassChars } from "../store";
     import { onDestroy } from "svelte";
     import SizeController from "./SizeController.svelte";
+    import SymbolChoice from "./SymbolChoice.svelte";
 
     let value: string = "";
     let length: number = 0;
+    let chars: string = "";
 
     function generate() {
         storePassOutput.set(
-            (value) ? generate_password(value, CHARS, length) : ""
+            (value) ? generate_password(value, chars, length) : ""
         );
     }
 
@@ -26,9 +28,15 @@
         generate();
     });
 
+    let unsubscribeChars = storePassChars.subscribe(newValue => {
+        chars = newValue;
+        generate();
+    });
+
     onDestroy(() => {
         unsubscribeInput();
         unsubscribeLength();
+        unsubscribeChars();
     });
 </script>
 
@@ -42,6 +50,7 @@
             <PassButton type="delete"></PassButton>
         </div>
         <SizeController></SizeController>
+        <SymbolChoice></SymbolChoice>
     </div>
     
 </div>

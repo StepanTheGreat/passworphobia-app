@@ -2,7 +2,7 @@
     import Generator from "./components/Generator.svelte";
 </script>
 
-<main class="w-full h-full grid bg-secondary">
+<main class="w-full h-full grid bg-background">
   <div class="flex">
     <h1 class="text-white text-5xl font-bold m-auto">Passworphobia</h1>
   </div>
