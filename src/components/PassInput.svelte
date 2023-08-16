@@ -23,7 +23,7 @@
         type={visible ? "text" : "password"} 
         value={inputValue}
         on:input={(e) => onInput(e)}
-        class="text-center rounded-md mx-1"
+        class="text-center rounded-md mx-1 bg-primary text-text"
     />
     <VisibilityButton {visible} callback={() => visible = !visible}></VisibilityButton>
 </div>

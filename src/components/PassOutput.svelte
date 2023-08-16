@@ -17,7 +17,7 @@
         type={visible ? "text" : "password"} 
         value={outputValue}
         disabled
-        class="text-center rounded-md mx-1"
+        class="text-center text-text rounded-md mx-1 bg-primary"
     />
     <VisibilityButton {visible} callback={() => visible = !visible}></VisibilityButton>
 </div>
