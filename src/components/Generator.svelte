@@ -5,8 +5,7 @@
     import PassButton from "./PassButton.svelte";
     import { storePassInput, storePassOutput, storePassLength, storePassChars } from "../store";
     import { onDestroy } from "svelte";
-    import SizeController from "./SizeController.svelte";
-    import SymbolChoice from "./SymbolChoice.svelte";
+    import GeneratorSettings from "./GeneratorSettings.svelte";
 
     let value: string = "";
     let length: number = 0;
@@ -45,12 +44,14 @@
         <PassOutput size={42}></PassOutput>
         <PassInput  size={42}></PassInput>
 
-        <div class="m-1">
-            <PassButton type="copy"></PassButton>
-            <PassButton type="delete"></PassButton>
+        <div class="w-full flex flex-row">
+            <div class="m-2 mr-auto">
+                <PassButton type="copy"></PassButton>
+                <PassButton type="delete"></PassButton>
+            </div>
+            <GeneratorSettings></GeneratorSettings>
         </div>
-        <SizeController></SizeController>
-        <SymbolChoice></SymbolChoice>
+        
     </div>
     
 </div>
