@@ -1,6 +1,8 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import Generator from "./components/Generator.svelte";
     import Profile from "./components/Profile.svelte";
+    import { autoSignIn } from "./fire";
 </script>
 
 <main class="w-full h-full grid gap-4 bg-background">
