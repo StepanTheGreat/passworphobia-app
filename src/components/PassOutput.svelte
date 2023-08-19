@@ -11,13 +11,13 @@
     onDestroy(() => unsubscribe());
 </script>
 
-<div class="flex flex-row m-1 ">
+<div class="flex flex-row m-1 mb-6">
     <input 
         {size}
         type={visible ? "text" : "password"} 
         value={outputValue}
         disabled
-        class="text-center text-text rounded-md mx-1 bg-primary"
+        class="text-center text-text rounded-md mx-1 bg-primary-dark pr-8 pl-1"
     />
     <VisibilityButton {visible} callback={() => visible = !visible}></VisibilityButton>
 </div>
