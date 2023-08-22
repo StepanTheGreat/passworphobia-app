@@ -58,7 +58,7 @@ export function signOut() {
         fireAuth.signOut().then(() => {
             storeUserSalt.set("");
             storeUID.set("");
-            setTimeout(() => storeLoading.set(false), 1000);
+            
         });
     }
 }
@@ -80,7 +80,7 @@ export function deleteAccount() {
         }).catch(() => {
             console.log("Failed to delete a document!");
         }).finally(() => {
-            storeLoading.set(false);
+            setTimeout(() => storeLoading.set(false), 1000);
         });
     }
 }

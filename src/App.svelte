@@ -1,12 +1,13 @@
 <script lang="ts">
     import Generator from "./components/Generator.svelte";
     import Profile from "./components/Profile.svelte";
+    import Title from "./components/Title.svelte";
 </script>
 
 <main class="w-full h-full grid gap-4 bg-background">
   <div class="_header flex flex-row">
     <div></div>
-    <h1 class="text-white text-7xl font-sen m-auto">Passworphobia</h1>
+    <Title></Title>
     <Profile></Profile>
   </div>
   <div class="_tool flex flex-col">
