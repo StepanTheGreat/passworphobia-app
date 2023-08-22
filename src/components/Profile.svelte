@@ -68,9 +68,7 @@
                         class="m-auto mb-4 h-fit w-fit px-8 py-2 bg-secondary rounded-md text-text"
                         on:click={signOutBtn}
                     >Sign out</button>
-                    <button 
-                        class="m-auto mb-4 h-fit w-fit px-8 py-2 bg-red-500 rounded-md text-text"
-                    >Delete account</button>
+                    <DeleteMenu></DeleteMenu>
                 {:else}
                     <h1 class="mx-auto text-text">You're not logged in.</h1>
                     <button 
@@ -82,5 +80,3 @@
         </div>
     </div>
 {/if}
-
-<DeleteMenu></DeleteMenu>
