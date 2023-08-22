@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { getFirestore, setDoc } from "firebase/firestore";
+import { deleteUser, getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { deleteDoc, getFirestore, setDoc } from "firebase/firestore";
 
 //@ts-ignore
 import fireConfig from "/src/assets/firebase.config.json";
@@ -38,7 +38,6 @@ function loadUserData(id: string) {
 }
 
 export function autoSignIn() {
-    console.log(fireAuth.currentUser);
     if (fireAuth.currentUser) {
         let user = fireAuth.currentUser;
         loadUserData(user.uid);
@@ -57,11 +56,31 @@ export function signOut() {
     storeLoading.set(true);
     if (fireAuth.currentUser) {
         fireAuth.signOut().then(() => {
-            storeUserSalt.set("salt");
-            storeUID.set("id");
+            storeUserSalt.set("");
+            storeUID.set("");
             setTimeout(() => storeLoading.set(false), 1000);
         });
     }
 }
 
-autoSignIn();
+export function deleteAccount() {
+    let user = fireAuth.currentUser;
+    if (user) {
+        storeLoading.set(true);
+        const userRef = doc(fireStore, `users/${user.uid}`);
+        deleteDoc(userRef).then(() => {
+            storeUserSalt.set("");
+            
+            deleteUser(user).then(() => {
+                storeUID.set("");
+                console.log("Succesfully deleted the account and document!");
+            }).catch(() => {
+                console.log("Failed to delete an account!");
+            });
+        }).catch(() => {
+            console.log("Failed to delete a document!");
+        }).finally(() => {
+            storeLoading.set(false);
+        });
+    }
+}

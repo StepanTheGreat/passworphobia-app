@@ -59,7 +59,6 @@
             </div>
             <GeneratorSettings></GeneratorSettings>
         </div>
-        
     </div>
     
 </div>
