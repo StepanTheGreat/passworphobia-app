@@ -61,8 +61,8 @@
 
 <div class="w-fit h-fit flex flex-row">
     <button 
-        {disabled} 
-        class="{disabled? "bg-black text-text" : "bg-secondary text-accent"} rounded-md px-8 py-4 m-2"
+        {disabled}
+        class="{disabled? "bg-black" : "bg-secondary text-accent"} rounded-md px-8 py-4 m-2 text-text"
         on:click={deleteAcc}
     >
         Delete my account
