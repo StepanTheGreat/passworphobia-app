@@ -57,12 +57,12 @@
                 {/each}
             </select>
 
-            <div class="flex flex-row gap-1 mb-1">
-                <input class="w-6 h-6 accent-accent" bind:checked={numbersOn} type="checkbox" on:input={() => turnSet("numbers")}>
+            <div class="flex flex-row gap-1 mb-2">
+                <input class="w-6 h-6 accent-accent bg-text" bind:checked={numbersOn} type="checkbox" on:input={() => turnSet("numbers")}>
                 <p class="inline-block text-text">Numbers</p>
             </div>
             <div class="flex flex-row gap-1">
-                <input class="w-6 h-6 accent-accent" bind:checked={symbolsOn} type="checkbox" on:input={() => turnSet("symbols")}>
+                <input class="w-6 h-6 accent-accent bg-text" bind:checked={symbolsOn} type="checkbox" on:input={() => turnSet("symbols")}>
                 <p class="inline-block text-text">Special characters</p>
             </div>
         </div>

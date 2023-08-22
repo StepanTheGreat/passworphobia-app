@@ -58,7 +58,7 @@ export function signOut() {
         fireAuth.signOut().then(() => {
             storeUserSalt.set("");
             storeUID.set("");
-            
+            setTimeout(() => storeLoading.set(false), 1000);
         });
     }
 }

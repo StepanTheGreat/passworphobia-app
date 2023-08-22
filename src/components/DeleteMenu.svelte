@@ -1,8 +1,8 @@
 <script lang="ts">
     import { deleteAccount } from "../fire";
 
-    const TIME: number = 1;
-    const RATE: number = 0.05;
+    const TIME: number = 100;
+    const RATE: number = 0.6;
     const RATE_DELAY: number = 100;
 
     let disabled: boolean = true;
@@ -49,7 +49,7 @@
         }
         interval = setInterval(() => {
             if (leftTo < TIME) {
-                leftTo += RATE;
+                leftTo += RATE*10;
             } else {
                 leftTo = TIME;
                 clearInterval(interval);
@@ -62,13 +62,13 @@
 <div class="w-fit h-fit flex flex-row">
     <button 
         {disabled}
-        class="{disabled? "bg-black" : "bg-secondary text-accent"} rounded-md px-8 py-4 m-2 text-text"
+        class="{disabled? "bg-black text-text cursor-not-allowed" : "bg-secondary text-accent"} rounded-md px-8 py-4 m-2 mr-0 ml-12"
         on:click={deleteAcc}
     >
         Delete my account
     </button>
     <button 
-        class="w-8 h-8 my-auto rounded-md fill-text m-2" 
+        class="w-8 h-8 my-auto rounded-md fill-text m-2 {waiting? "cursor-progress":""}" 
         on:mousedown={onBtnDown} 
         on:mouseup={onBtnUp}
         on:mouseleave={onBtnUp} 
@@ -81,9 +81,8 @@
                     <path d="M16 3.25A4.75 4.75 0 0 0 11.25 8v2.25H6A2.75 2.75 0 0 0 3.25 13v5A2.75 2.75 0 0 0 6 20.75h7A2.75 2.75 0 0 0 15.75 18v-5A2.75 2.75 0 0 0 13 10.25h-.25V8a3.25 3.25 0 0 1 6.5 0a.75.75 0 0 0 1.5 0A4.75 4.75 0 0 0 16 3.25ZM14.25 13v5A1.25 1.25 0 0 1 13 19.25H6A1.25 1.25 0 0 1 4.75 18v-5A1.25 1.25 0 0 1 6 11.75h7A1.25 1.25 0 0 1 14.25 13Z"/>
                 {/if}
             </svg>
-            <div class="_line h-1 bg-red-500" style="width: {100-leftTo*100}%"></div>
+            <div class="_line h-1 bg-accent" style="width: {100-leftTo}%"></div>
         </div>
-        
     </button>
 </div>
 
