@@ -35,7 +35,7 @@
     });
 </script>
 
-<button class="w-16 h-16 inline-block rounded-md m-auto mt-2 mr-2" on:click={() => hidden = !hidden}>
+<button class="w-24 h-24 inline-block rounded-md m-auto mt-2 mr-2" on:click={() => hidden = !hidden}>
     {#if loading}
         <svg class="w-full h-full stroke-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
             <g>
@@ -59,16 +59,17 @@
 </button>
 
 {#if !hidden}
-    <div class="absolute left-0 w-full h-full flex pointer-events-none">
-        <div class="m-auto w-1/2 h-1/2 bg-primary rounded-xl flex flex-col pointer-events-auto">
+    <div class="absolute left-0 w-full h-full flex pointer-events-none z-10">
+        <div class="m-auto w-fit h-fit px-24 py-16 bg-primary rounded-xl flex flex-col pointer-events-auto">
             <div class="m-auto text-center flex flex-col">
                 {#if loggedIn}
-                    <h1 class="my-4 mx-auto text-text font-bold ">You're logged in as {name}</h1>
+                    <h1 class="mb-8 mx-auto text-text font-bold ">You're logged in as {name}</h1>
                     <button 
-                        class="m-auto mb-4 h-fit w-fit px-8 py-2 bg-secondary rounded-md text-text"
+                        class="m-auto mb-2 h-fit w-fit px-8 py-2 bg-secondary rounded-md text-text"
                         on:click={signOutBtn}
                     >Sign out</button>
                     <DeleteMenu></DeleteMenu>
+                    <p class="text-text italic">Hold the lock to unlock the deletion button</p>
                 {:else}
                     <h1 class="mx-auto text-text">You're not logged in.</h1>
                     <button 
