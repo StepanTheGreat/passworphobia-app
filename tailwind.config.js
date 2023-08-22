@@ -8,10 +8,10 @@ export default {
         "currentColor": "#FF0000",
         "text": "#faf4ef",
         "background": "#13142c",
-        "primary": "#1c21aa",
+        "primary": "#2126c0",
         "primary-dark": "#14187d",
-        "secondary": "#140059",
-        "accent": "#ff7a1c",
+        "secondary": "#060723",
+        "accent": "#ff6d00",
       },
       fontFamily: {
         "sen": ["Sen", "Arial", "sans-serif"]
