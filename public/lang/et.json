@@ -1,0 +1,16 @@
+{
+    "generator": {
+        "size_hint": ["Väga väike", "Väike", "Keskmine", "Suur", "Väga suur"],
+        "settings_numbers": "Numbrid",
+        "settings_scharacters": "Erisümbolid",
+        "input_placeholder": "Sisestage oma parool siia..."
+    },
+    "profile": {
+        "logged_in": "Olete sisse logitud kui",
+        "logged_out": "Te ei ole sisse logitud",
+        "sign_out_btn": "Logi välja",
+        "sign_in_google_btn": "Logi sisse Google'i kontoga",
+        "delete_btn": "Kustuta minu konto",
+        "lock_hint": "Hoidke lukustust, et avada kustutusnuppu"
+    }
+}

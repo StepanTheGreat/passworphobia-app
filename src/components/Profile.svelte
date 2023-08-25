@@ -3,6 +3,21 @@
     import { fireAuth, manualSignIn, signOut } from "../fire";
     import { storeLoading, storeUID } from "../store";
     import DeleteMenu from "./DeleteMenu.svelte";
+    import { langTable } from "../lang";
+
+    let loggedInAsText: string;
+    let notLoggedInText: string;
+    let lockHintText: string;
+    let signInGoogleText: string;
+    let signOutText: string;
+
+    let unsubscribeLang = langTable.subscribe(newTable => {
+        loggedInAsText = newTable.profile.logged_in;
+        notLoggedInText = newTable.profile.logged_out;
+        lockHintText = newTable.profile.lock_hint;
+        signInGoogleText = newTable.profile.sign_in_google_btn;
+        signOutText = newTable.profile.sign_out_btn;
+    });
 
     let hidden: boolean = true;
 
@@ -32,10 +47,11 @@
     onDestroy(() => {
         unsusbcribeUID();
         unsusbcribeLoading();
+        unsubscribeLang();
     });
 </script>
 
-<button class="w-24 h-24 inline-block rounded-md m-auto mt-2 mr-2" on:click={() => hidden = !hidden}>
+<button class="w-20 h-20 inline-block rounded-md m-auto my-auto mr-4" on:click={() => hidden = !hidden}>
     {#if loading}
         <svg class="w-full h-full stroke-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
             <g>
@@ -63,19 +79,19 @@
         <div class="m-auto w-fit h-fit px-24 py-16 bg-primary rounded-xl flex flex-col pointer-events-auto">
             <div class="m-auto text-center flex flex-col">
                 {#if loggedIn}
-                    <h1 class="mb-8 mx-auto text-text font-bold ">You're logged in as {name}</h1>
+                    <h1 class="mb-8 mx-auto text-text font-bold ">{loggedInAsText} {name}</h1>
                     <button 
                         class="m-auto mb-2 h-fit w-fit px-8 py-2 bg-secondary rounded-md text-text"
                         on:click={signOutBtn}
-                    >Sign out</button>
+                    >{signOutText}</button>
                     <DeleteMenu></DeleteMenu>
-                    <p class="text-text italic">Hold the lock to unlock the deletion button</p>
+                    <p class="text-text italic">{lockHintText}</p>
                 {:else}
-                    <h1 class="mx-auto text-text">You're not logged in.</h1>
+                    <h1 class="mx-auto text-text">{notLoggedInText}</h1>
                     <button 
                         class="m-auto mt-8 h-fit w-fit px-8 py-2 bg-secondary rounded-md text-text" 
                         on:click={signInBtn}
-                    >Sign in with Google</button>
+                    >{signInGoogleText}</button>
                 {/if}
             </div>
         </div>

@@ -1,6 +1,4 @@
 <script lang="ts">
-    
-
     export let callback: () => void;
     export let visible: boolean = false;
 </script>

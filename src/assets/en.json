@@ -1,0 +1,17 @@
+{
+    "generator": {
+        "size_hint": ["Tiny", "Small", "Medium", "Big", "Large"],
+        "settings_numbers": "Numbers",
+        "settings_scharacters": "Special characters",
+        "input_placeholder": "Type your passphrase here..."
+    },
+    "profile": {
+        "logged_in": "You're logged in as",
+        "logged_out": "You're not logged in",
+        "sign_out_btn": "Sign out",
+        "sign_in_google_btn": "Sign in with Google",
+        "delete_btn": "Delete my account",
+        "lock_hint": "Hold the lock to unlock the deletion button"
+    }
+    
+}
