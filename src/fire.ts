@@ -1,11 +1,14 @@
 import { initializeApp } from "firebase/app";
-import { deleteUser, getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { deleteUser, getAuth, GoogleAuthProvider, signInWithCredential, signInWithPopup } from "firebase/auth";
 import { deleteDoc, getFirestore, setDoc } from "firebase/firestore";
 
 //@ts-ignore
 import fireConfig from "/src/assets/firebase.config.json";
 import { doc, getDoc } from "firebase/firestore";
 import { storeLoading, storeUID, storeUserSalt } from "./store";
+import { invoke } from "@tauri-apps/api";
+import { listen } from "@tauri-apps/api/event";
+import { open } from "@tauri-apps/api/shell";
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -47,10 +50,43 @@ function loadUserData(id: string) {
 }
 
 export function manualSignIn() {
-    signInWithPopup(fireAuth, googleProvider).then(credential => {
-        fireAuth.updateCurrentUser(credential.user);
-        loadUserData(credential.user.uid);
-    }).catch(() => console.log("Failed to sing in!"));
+    listen("oauth://url", (data) => {
+        //@ts-ignore
+        const url = new URL(data.payload);
+        const access_token = new URLSearchParams(url.hash.substring(1)).get("access_token");
+
+        if (!access_token) return;
+        const credential = GoogleAuthProvider.credential(null, access_token);
+
+        signInWithCredential(fireAuth, credential).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error(errorCode, errorMessage);
+        });
+    });
+    
+    invoke("plugin:oauth|start", {
+        // config: {
+        //     response: callbackTemplate,
+        // },
+    }).then((port) => {
+        console.log(port);
+        return new Promise((resolve, reject) => {
+            open("https://accounts.google.com/o/oauth2/auth?" +
+                "response_type=token&" +
+                `client_id=${fireConfig.clientId}&` +
+                `redirect_uri=http%3A//localhost:${port}&` +
+                "scope=email%20profile%20openid&" +
+                "prompt=consent"
+            ).then(resolve).catch(reject);
+          });
+        
+    });
+
+    // signInWithPopup(fireAuth, googleProvider).then(credential => {
+    //     fireAuth.updateCurrentUser(credential.user);
+    //     loadUserData(credential.user.uid);
+    // }).catch(() => console.log("Failed to sing in!"));
 }
 
 export function signOut() {
