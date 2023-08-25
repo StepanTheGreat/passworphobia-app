@@ -3,8 +3,7 @@ import { writable } from "svelte/store";
 import stdLang from "/src/assets/en.json";
 
 const LANGS: string[] = ["en", "et", "fr", "ru", "ua"];
-
-export let langTable = writable(stdLang);
+const hasStorage: boolean = typeof(Storage) !== "undefined";
 
 export function langLoad(newLang: string) {
     if (LANGS.includes(newLang) && newLang != "en") {
@@ -18,3 +17,21 @@ export function langLoad(newLang: string) {
         langTable.set(stdLang);
     }
 }
+
+export function saveLang(lang: string) {
+    if (hasStorage) {
+        localStorage.setItem("lang", lang);
+    }
+}
+
+export function getLang(): string {
+    if (hasStorage) {
+        let lang = localStorage.getItem("lang");
+        return lang? lang : "en";
+    } else {
+        return "en";
+    }
+}
+
+export let langTable = writable(stdLang);
+langLoad(getLang());

@@ -1,19 +1,19 @@
+<!-- Copyright © 2023 August, Perfect Duo. All rights reserved. -->
+
 <script lang="ts">
     import { onDestroy } from "svelte";
     import Generator from "./components/Generator.svelte";
     import Profile from "./components/Profile.svelte";
     import Title from "./components/Title.svelte";
     import { fireStateUnsubscribe } from "./fire";
-    import { langLoad } from "./lang";
+    import LangBtn from "./components/LangBtn.svelte";
 
-
-    langLoad("et");
     onDestroy(() => fireStateUnsubscribe());
 </script>
 
 <main class="w-full h-full grid gap-4 bg-background">
   <div class="_header flex flex-row">
-    <div></div>
+    <LangBtn></LangBtn>
     <Title></Title>
     <Profile></Profile>
   </div>
