@@ -13,6 +13,15 @@ export const fireApp = initializeApp(fireConfig);
 export const fireAuth = getAuth(fireApp);
 export const fireStore = getFirestore(fireApp);
 
+export let fireStateUnsubscribe = fireAuth.onAuthStateChanged(user => {
+    if (user) {
+        loadUserData(user.uid);
+    } else {
+        storeUserSalt.set("");
+        storeUID.set("");
+    }
+});
+
 function generateSalt() {
     let uid = crypto.randomUUID() + crypto.randomUUID();
     uid = uid.split("-").join("");
@@ -37,17 +46,9 @@ function loadUserData(id: string) {
     });
 }
 
-export function autoSignIn() {
-    if (fireAuth.currentUser) {
-        let user = fireAuth.currentUser;
-        loadUserData(user.uid);
-    }
-}
-
 export function manualSignIn() {
     signInWithPopup(fireAuth, googleProvider).then(credential => {
         fireAuth.updateCurrentUser(credential.user);
-        // Succesfully signed-in
         loadUserData(credential.user.uid);
     }).catch(() => console.log("Failed to sing in!"));
 }

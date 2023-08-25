@@ -1,5 +1,11 @@
 <script lang="ts">
     import { deleteAccount } from "../fire";
+    import { langTable } from "../lang";
+
+    let delBtnText: string;
+    langTable.subscribe(newTable => {
+        delBtnText = newTable.profile.delete_btn;
+    });
 
     const TIME: number = 100;
     const RATE: number = 0.6;
@@ -59,16 +65,16 @@
     }
 </script>
 
-<div class="w-fit h-fit flex flex-row">
+<div class="w-fit h-fit flex flex-row mx-auto">
     <button 
         {disabled}
-        class="{disabled? "bg-black text-text cursor-not-allowed" : "bg-secondary text-accent"} rounded-md px-8 py-4 m-2 mr-0 ml-12"
+        class="{disabled? "bg-black text-text cursor-not-allowed" : "bg-secondary text-accent"} rounded-md px-8 py-4 m-2"
         on:click={deleteAcc}
     >
-        Delete my account
+        {delBtnText}
     </button>
     <button 
-        class="w-8 h-8 my-auto rounded-md fill-text m-2 {waiting? "cursor-progress":""}" 
+        class="w-8 h-8 my-auto rounded-md fill-text m-2 -mr-8 {waiting? "cursor-progress":""}" 
         on:mousedown={onBtnDown} 
         on:mouseup={onBtnUp}
         on:mouseleave={onBtnUp} 

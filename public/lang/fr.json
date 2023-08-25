@@ -1,0 +1,16 @@
+{
+    "generator": {
+        "size_hint": ["Minuscule", "Petit", "Moyen", "Grand", "Très grand"],
+        "settings_numbers": "Chiffres",
+        "settings_scharacters": "Caractères spéciaux",
+        "input_placeholder": "Tapez votre phrase secrète ici..."
+    },
+    "profile": {
+        "logged_in": "Vous êtes connecté en tant que",
+        "logged_out": "Vous n'êtes pas connecté",
+        "sign_out_btn": "Se déconnecter",
+        "sign_in_google_btn": "Se connecter avec Google",
+        "delete_btn": "Supprimer mon compte",
+        "lock_hint": "Maintenez le verrou pour déverrouiller le bouton de suppression"
+    }
+}
