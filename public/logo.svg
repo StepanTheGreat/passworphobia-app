@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-<!-- Copyright © 2023 August, Perfect Duo. All rights reserved. -->
 
 <svg
    width="100mm"
@@ -8,13 +7,37 @@
    viewBox="0 0 100 100"
    version="1.1"
    id="svg1"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.4627806"
+     inkscape:cx="85.453691"
+     inkscape:cy="206.79793"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
   <defs
      id="defs1">
     <linearGradient
-       id="linearGradient40">
+       id="linearGradient40"
+       inkscape:collect="always">
       <stop
          style="stop-color:#8326c0;stop-opacity:1;"
          offset="0"
@@ -25,13 +48,15 @@
          id="stop41" />
     </linearGradient>
     <linearGradient
-       id="swatch39">
+       id="swatch39"
+       inkscape:swatch="solid">
       <stop
          style="stop-color:#2126c0;stop-opacity:1;"
          offset="0"
          id="stop39" />
     </linearGradient>
     <linearGradient
+       inkscape:collect="always"
        xlink:href="#linearGradient40"
        id="linearGradient41"
        x1="46.878601"
@@ -40,20 +65,48 @@
        y2="89.100098"
        gradientUnits="userSpaceOnUse"
        spreadMethod="pad" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient40"
+       id="linearGradient43"
+       gradientUnits="userSpaceOnUse"
+       x1="46.878601"
+       y1="-5.4985647"
+       x2="46.878601"
+       y2="89.100098"
+       spreadMethod="pad"
+       gradientTransform="translate(1.6278928)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient40"
+       id="linearGradient44"
+       gradientUnits="userSpaceOnUse"
+       x1="46.878601"
+       y1="-5.4985647"
+       x2="46.878601"
+       y2="89.100098"
+       spreadMethod="pad" />
   </defs>
   <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
      id="layer1">
     <g
        id="g40"
-       style="stroke:url(#linearGradient41)">
+       inkscape:label="letter"
+       style="stroke:url(#linearGradient41);stroke-width:6.6;stroke-dasharray:none"
+       transform="matrix(1.1165289,0,0,1.1165289,-6.0379141,-6.3243658)">
       <path
-         style="fill:none;stroke:url(#linearGradient41);stroke-width:4.29812;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         d="M 38.288704,91.330379 V 9.4543593 L 81.990458,27.591448 50.552834,46.592214 50.354379,26.209576 81.299525,40.028315 51.416505,59.374552"
-         id="path30" />
+         style="fill:none;stroke:url(#linearGradient44);stroke-width:6.6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="M 38.288704,91.330379 V 9.4543593 L 81.990458,27.591448 50.552834,46.592214 50.535256,27.294838 81.299525,40.028315 51.416505,59.374552"
+         id="path30"
+         sodipodi:nodetypes="ccccccc"
+         inkscape:label="p" />
       <path
-         style="fill:none;stroke:url(#linearGradient41);stroke-width:4.29812;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-         d="M 23.779032,26.382312 V 76.993434"
-         id="path31" />
+         style="fill:none;stroke:url(#linearGradient43);stroke-width:6.6;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="M 25.406925,26.382312 V 76.993434"
+         id="path31"
+         inkscape:label="l" />
     </g>
   </g>
-</svg> 
+</svg>
