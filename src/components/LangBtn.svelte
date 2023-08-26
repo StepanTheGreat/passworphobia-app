@@ -21,4 +21,4 @@
     }
 </script>
 
-<button class="my-auto mx-8 w-fit h-fit text-4xl text-text" on:click={changeLang}>{langs[lang]}</button>
+<button class="my-auto mx-8 w-fit h-fit text-3xl md:text-4xl text-text" on:click={changeLang}>{langs[lang]}</button>

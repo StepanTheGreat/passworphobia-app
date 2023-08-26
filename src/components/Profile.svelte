@@ -51,7 +51,7 @@
     });
 </script>
 
-<button class="w-20 h-20 inline-block rounded-md m-auto my-auto mr-4" on:click={() => hidden = !hidden}>
+<button class="w-16 h-16 md:w-20 md:h-20 inline-block rounded-md m-auto my-auto mr-4" on:click={() => hidden = !hidden}>
     {#if loading}
         <svg class="w-full h-full stroke-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
             <g>

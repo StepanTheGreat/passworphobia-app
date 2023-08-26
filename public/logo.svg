@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<!-- Copyright © 2023 August, Perfect Duo. All rights reserved. -->
+
+<svg
+   width="100mm"
+   height="100mm"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient40">
+      <stop
+         style="stop-color:#8326c0;stop-opacity:1;"
+         offset="0"
+         id="stop40" />
+      <stop
+         style="stop-color:#ff6d00;stop-opacity:1;"
+         offset="1"
+         id="stop41" />
+    </linearGradient>
+    <linearGradient
+       id="swatch39">
+      <stop
+         style="stop-color:#2126c0;stop-opacity:1;"
+         offset="0"
+         id="stop39" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient40"
+       id="linearGradient41"
+       x1="46.878601"
+       y1="-5.4985647"
+       x2="46.878601"
+       y2="89.100098"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="pad" />
+  </defs>
+  <g
+     id="layer1">
+    <g
+       id="g40"
+       style="stroke:url(#linearGradient41)">
+      <path
+         style="fill:none;stroke:url(#linearGradient41);stroke-width:4.29812;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="M 38.288704,91.330379 V 9.4543593 L 81.990458,27.591448 50.552834,46.592214 50.354379,26.209576 81.299525,40.028315 51.416505,59.374552"
+         id="path30" />
+      <path
+         style="fill:none;stroke:url(#linearGradient41);stroke-width:4.29812;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="M 23.779032,26.382312 V 76.993434"
+         id="path31" />
+    </g>
+  </g>
+</svg> 
