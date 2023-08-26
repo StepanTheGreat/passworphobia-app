@@ -66,9 +66,9 @@ export function manualSignIn() {
     });
     
     invoke("plugin:oauth|start", {
-        // config: {
-        //     response: callbackTemplate,
-        // },
+        config: {
+            response: "<h1>Congrats! You can return back! </h1>",
+        },
     }).then((port) => {
         console.log(port);
         return new Promise((resolve, reject) => {

@@ -18,6 +18,4 @@ export default defineConfig(async () => ({
     },
   },
   envPrefix: ["VITE_", "TAURI_"],
-
-  
 }));
