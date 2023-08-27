@@ -14,7 +14,7 @@ export default {
         "accent": "#ff6d00",
       },
       fontFamily: {
-        "sen": ["Sen", "Arial", "sans-serif"]
+        "sen": ["Sen", "Arial", "sans-serif"],
       }
     },
   },
