@@ -12,6 +12,6 @@
         "sign_in_google_btn": "Sign in with Google",
         "delete_btn": "Delete my account",
         "lock_hint": "Hold the lock to unlock the deletion button"
-    }
-    
+    },
+    "sign_in_text": "Congratulations! You're all set to close this page now and seamlessly rejoin the app!"
 }
