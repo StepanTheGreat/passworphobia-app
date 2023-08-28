@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { deleteUser, getAuth, GoogleAuthProvider, signInWithCredential, signInWithPopup } from "firebase/auth";
+import { deleteUser, getAuth, GoogleAuthProvider, signInWithCredential } from "firebase/auth";
 import { deleteDoc, getFirestore, setDoc } from "firebase/firestore";
 
 //@ts-ignore
@@ -9,8 +9,8 @@ import { storeLoading, storeUID, storeUserSalt } from "./store";
 import { invoke } from "@tauri-apps/api";
 import { listen } from "@tauri-apps/api/event";
 import { open } from "@tauri-apps/api/shell";
-
-const googleProvider = new GoogleAuthProvider();
+import { langTable } from "./lang";
+import { get } from "svelte/store";
 
 export const fireApp = initializeApp(fireConfig);
 export const fireAuth = getAuth(fireApp);
@@ -64,13 +64,40 @@ export function manualSignIn() {
             console.error(errorCode, errorMessage);
         });
     });
+
+    const success_text = get(langTable).sign_in_text;
     
     invoke("plugin:oauth|start", {
         config: {
-            response: "<h1>Congrats! You can return back! </h1>",
+            response: `
+                <!doctype html>
+                <html>
+                <head>
+                    <meta charset="UTF-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <style>
+                        html,body {height: 100%; margin: 0;}
+                        body {background-color: #13142c;}
+                        div {margin: auto;}
+                        body, div {display: flex; flex-direction: column;}
+                        svg { fill: #faf4ef;width: 20vh;height: 20vh;margin-left: auto;margin-right: auto;}
+                        h2 {text-align: center;color: #faf4ef;margin-bottom: auto;font-family: "Helvetica", sans-serif;}
+                    </style>
+                </head>
+
+                <body>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M10.5 15.25A.74.74 0 0 1 10 15l-3-3a.75.75 0 0 1 1-1l2.47 2.47L19 5a.75.75 0 0 1 1 1l-9 9a.74.74 0 0 1-.5.25Z"/>
+                            <path d="M12 21a9 9 0 0 1-7.87-4.66a8.67 8.67 0 0 1-1.07-3.41a9 9 0 0 1 4.6-8.81a8.67 8.67 0 0 1 3.41-1.07a8.86 8.86 0 0 1 3.55.34a.75.75 0 1 1-.43 1.43a7.62 7.62 0 0 0-3-.28a7.43 7.43 0 0 0-2.84.89a7.5 7.5 0 0 0-2.2 1.84a7.42 7.42 0 0 0-1.64 5.51a7.43 7.43 0 0 0 .89 2.84a7.5 7.5 0 0 0 1.84 2.2a7.42 7.42 0 0 0 5.51 1.64a7.43 7.43 0 0 0 2.84-.89a7.5 7.5 0 0 0 2.2-1.84a7.42 7.42 0 0 0 1.64-5.51a.75.75 0 1 1 1.57-.15a9 9 0 0 1-4.61 8.81A8.67 8.67 0 0 1 12.93 21H12Z"/>
+                        </svg>
+                        <h2>${success_text}</h2>
+                    </div>
+                </body>
+                </html>
+            `,
         },
     }).then((port) => {
-        console.log(port);
         return new Promise((resolve, reject) => {
             open("https://accounts.google.com/o/oauth2/auth?" +
                 "response_type=token&" +
@@ -82,11 +109,6 @@ export function manualSignIn() {
           });
         
     });
-
-    // signInWithPopup(fireAuth, googleProvider).then(credential => {
-    //     fireAuth.updateCurrentUser(credential.user);
-    //     loadUserData(credential.user.uid);
-    // }).catch(() => console.log("Failed to sing in!"));
 }
 
 export function signOut() {

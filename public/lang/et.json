@@ -12,5 +12,6 @@
         "sign_in_google_btn": "Logi sisse Google'i kontoga",
         "delete_btn": "Kustuta minu konto",
         "lock_hint": "Hoidke lukustust, et avada kustutusnuppu"
-    }
+    },
+    "sign_in_text": "Palju õnne! Nüüd võite julgesti selle lehe sulgeda ja sujuvalt rakendusse tagasi liikuda!"
 }

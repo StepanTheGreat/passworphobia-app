@@ -1,6 +1,11 @@
 /* Copyright © 2023 August, Anita Eruste and Stepan Malchenko. All rights reserved. */
 
-@import url("https://fonts.googleapis.com/css2?family=Sen&display=swap");
+@font-face {
+    font-family: "Sen";
+    font-style: normal;
+    font-weight: 400;
+    src: url("./fonts/sen.woff2") format("woff2");
+}
 
 @tailwind base;
 @tailwind components;
