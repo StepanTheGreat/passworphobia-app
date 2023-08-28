@@ -14,7 +14,7 @@
         numbersText = newTable.generator.settings_numbers;
         scharsText = newTable.generator.settings_scharacters;
         size_hints = newTable.generator.size_hint;
-    })
+    });
 
     function onChange() {
         storePassLength.set(sizeValue*SIZE_FACTOR);
@@ -60,9 +60,9 @@
 
     {#if !hidden}
         <div class="absolute bg-secondary rounded-lg w-64 -translate-x-24 flex flex-col p-2">
-            <select class="h-8 mb-4 rounded-md text-text bg-primary" bind:value={sizeValue} on:change={onChange}>
+            <select class="h-8 mb-4 rounded-md px-1 appearance-none text-text bg-primary" bind:value={sizeValue} on:change={onChange}>
                 {#each size_hints as hint, index}
-                    <option class=""
+                    <option
                         value={index+1}
                         selected={index+1 == DEFAULT}
                     >{hint} ({(index+1)*SIZE_FACTOR})

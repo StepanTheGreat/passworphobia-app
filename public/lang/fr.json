@@ -12,5 +12,6 @@
         "sign_in_google_btn": "Se connecter avec Google",
         "delete_btn": "Supprimer mon compte",
         "lock_hint": "Maintenez le verrou pour déverrouiller le bouton de suppression"
-    }
+    },
+    "sign_in_text": "Félicitations ! Vous pouvez maintenant fermer cette page et revenir à l'application en toute simplicité !"
 }
