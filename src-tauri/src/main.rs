@@ -7,7 +7,6 @@ use std::fs;
 
 struct AppData {
     salt: String,
-    version: String
 }
 
 fn load_file(app: &tauri::AppHandle, key: &str) -> Option<AppData> {
