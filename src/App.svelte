@@ -1,14 +1,10 @@
 <!-- Copyright © 2023 August, Perfect Duo. All rights reserved. -->
 
 <script lang="ts">
-    import { onDestroy } from "svelte";
     import Generator from "./components/Generator.svelte";
     import Profile from "./components/Profile.svelte";
     import Title from "./components/Title.svelte";
-    import { fireStateUnsubscribe } from "./fire";
     import LangBtn from "./components/LangBtn.svelte";
-
-    onDestroy(() => fireStateUnsubscribe());
 </script>
 
 <main class="w-full h-full grid gap-4 bg-background">

@@ -1,6 +1,5 @@
 <script lang="ts">
     import { onDestroy } from "svelte";
-    import { fireAuth, manualSignIn, signOut } from "../fire";
     import { storeLoading, storeUID } from "../store";
     import DeleteMenu from "./DeleteMenu.svelte";
     import { langTable } from "../lang";
@@ -25,27 +24,9 @@
     let loggedIn: boolean = false;
     let name: string = "";
 
-    function signInBtn() {
-        manualSignIn();
-    }
-
-    function signOutBtn() {
-        signOut();
-    }
-
-    let unsusbcribeUID = storeUID.subscribe(() => {
-        loggedIn = fireAuth.currentUser != null;
-        if (loggedIn) {
-            name = fireAuth.currentUser.displayName;
-        } else {
-            name = "";
-        }
-    });
-
     let unsusbcribeLoading = storeLoading.subscribe(loadStatus => loading = loadStatus);
 
     onDestroy(() => {
-        unsusbcribeUID();
         unsusbcribeLoading();
         unsubscribeLang();
     });
@@ -80,18 +61,10 @@
             <div class="m-auto text-center flex flex-col">
                 {#if loggedIn}
                     <h1 class="mb-8 mx-auto text-text font-bold ">{loggedInAsText} {name}</h1>
-                    <button 
-                        class="m-auto mb-2 h-fit w-fit px-8 py-2 bg-secondary rounded-md text-text"
-                        on:click={signOutBtn}
-                    >{signOutText}</button>
                     <DeleteMenu></DeleteMenu>
                     <p class="text-text italic">{lockHintText}</p>
                 {:else}
                     <h1 class="mx-auto text-text">{notLoggedInText}</h1>
-                    <button 
-                        class="m-auto mt-8 h-fit w-fit px-8 py-2 bg-secondary rounded-md text-text" 
-                        on:click={signInBtn}
-                    >{signInGoogleText}</button>
                 {/if}
             </div>
         </div>
