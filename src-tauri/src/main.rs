@@ -2,26 +2,14 @@
 
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use tauri::api::file;
-use std::fs;
-
-struct AppData {
-    salt: String,
-}
-
-fn load_file(app: &tauri::AppHandle, key: &str) -> Option<AppData> {
-    let app_dir = tauri::api::path::app_local_data_dir(app.config().as_ref());
-    
-    match app_dir {
-        Some(path) => {
-            println!("{:?}", path);
-        },
-        None => None
-    }
+#[tauri::command]
+fn decrypt(data: &str, key: &str) -> Option<String> {
+    Some("Hello".to_string())
 }
 
 fn main() {
     tauri::Builder::default()
+        .invoke_handler(tauri::generate_handler![decrypt])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
