@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { deleteAccount } from "../fire";
     import { langTable } from "../lang";
 
     let delBtnText: string;
@@ -17,7 +16,7 @@
     let interval = null;
 
     function deleteAcc() {
-        deleteAccount();
+        
     }
 
     function onBtnDown() {
