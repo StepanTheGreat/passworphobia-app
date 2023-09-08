@@ -2,9 +2,13 @@
 
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+use std::rc::Rc;
+
 #[tauri::command]
 fn decrypt(data: &str, key: &str) -> Option<String> {
+    println!("Hello");
     Some("Hello".to_string())
+    
 }
 
 fn main() {
