@@ -2,7 +2,7 @@ import { writable } from "svelte/store";
 
 import { invoke } from "@tauri-apps/api";
 
-invoke("check_file").then(v => console.log(v));
+invoke("decrypt").then(v => console.log(v));
 
 export enum AppState {
     Lock,
