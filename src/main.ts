@@ -1,4 +1,4 @@
-// Copyright © 2023 August, Perfect Duo. All rights reserved.
+// Copyright © 2023 Perfect Duo. All rights reserved.
 
 import "./app.css";
 import App from "./App.svelte";

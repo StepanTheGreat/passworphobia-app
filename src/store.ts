@@ -24,6 +24,4 @@ export let storePassOutput = writable("");
 export let storePassLength = writable(DEFAULT*SIZE_FACTOR);
 export let storePassChars = writable(LETTERS+NUMBERS);
 
-export let storeUID = writable("");
-export let storeLoading = writable(false);
 export let storeUserSalt = writable("");

@@ -1,17 +1,21 @@
 <script lang="ts">
     import LockPass from "../components/LockPass.svelte";
     import Title from "../components/Title.svelte";
+    import { loadAccount, createAccount, hasAccount } from "../storage";
+    import { AppState, appState } from "../store";
 
     enum EntryType {
+        Loading,
         New,
         Existing
     }
-    let entryType: EntryType = EntryType.New;
+    let entryType: EntryType = EntryType.Loading;
+    hasAccount().then(has => entryType = (has)? EntryType.Existing : EntryType.New);
 
     let pass1: string;
     let pass2: string;
 
-    function onPassInput(e, index) {
+    function onPassInput(e: any, index: number) {
         if (index == 0) {
             pass1 = e.detail.value;
         } else if (index == 1) {
@@ -19,14 +23,20 @@
         }
     }
 
-    function newPass() {
-        console.log(pass1);
-        console.log(pass2);
+    function openWithNewPass() {
+        if (pass1 == pass2) {
+            createAccount(pass1).then(() => {
+                appState.set(AppState.Main);
+            });
+            
+        }
     }   
 
-    // function existingPass() {
-    //     console.log(lockPass1);
-    // }
+    function openWithExistingPass() {
+        loadAccount(pass1).then(() => {
+            appState.set(AppState.Main);
+        });
+    }
 
 </script>
 
@@ -44,10 +54,12 @@
                 <LockPass size={24} on:passInput={e => onPassInput(e, 0)}></LockPass>
                 <LockPass size={24} on:passInput={e => onPassInput(e, 1)}></LockPass>
             {/if}
+            {#if entryType != EntryType.Loading}
             <button 
                 class="block bg-accent rounded-md text-text mx-auto px-4 py-1"
-                on:click={newPass}
+                on:click={() => (entryType == EntryType.New)? openWithNewPass(): openWithExistingPass() }
             >Continue</button>
+            {/if}
         </div>
     </div>
 </main>
