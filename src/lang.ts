@@ -1,9 +1,10 @@
-import { writable } from "svelte/store";
+import { get, writable } from "svelte/store";
 //@ts-ignore
 import stdLang from "/src/assets/en.json";
-import { loadItem, setItem } from "./storage";
+import { confStore } from "./storage";
 
 const LANGS: string[] = ["en", "et", "fr", "ru", "ua"];
+export let langTable = writable(stdLang);
 
 export function langLoad(newLang: string) {
     if (LANGS.includes(newLang) && newLang != "en") {
@@ -18,14 +19,13 @@ export function langLoad(newLang: string) {
     }
 }
 
-export function saveLang(lang: string) {
-    setItem("lang", lang);
+export async function saveLang(lang: string) {
+    await confStore.set("lang", lang);
 }
 
-export function getLang(): string {
-    let lang = loadItem("lang");
+export async function getLang(): Promise<string> {
+    let lang: string | null = await confStore.get("lang");
     return lang? lang : "en";
 }
 
-export let langTable = writable(stdLang);
-langLoad(getLang());
+getLang().then(lang => langLoad(lang));

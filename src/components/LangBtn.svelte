@@ -1,6 +1,8 @@
 <script lang="ts">
     import { getLang, langLoad, saveLang } from "../lang";
-    export let lang: string = getLang();
+    let lang: string;
+
+    getLang().then(newLang => lang = newLang);
 
     let langs = {
         "en": "EN", 

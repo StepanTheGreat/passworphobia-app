@@ -1,4 +1,4 @@
-<!-- Copyright © 2023 August, Anita Eruste and Stepan Malchenko. All rights reserved. -->
+<!-- Copyright © 2023 Anita Eruste and Stepan Malchenko. All rights reserved. -->
 
 <script lang="ts">
 	import { onDestroy } from "svelte";
