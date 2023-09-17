@@ -1,6 +1,6 @@
 <script>
+    import Settings from "../components/Settings.svelte";
     import SwitchState from "../components/SwitchState.svelte";
-
 </script>
 
 <main class="w-full h-full grid gap-4 bg-background">
@@ -8,16 +8,11 @@
         <SwitchState to="home"></SwitchState>
     </div>
     <div class="_tool flex flex-col">
-        <h1>Hello</h1>
+        <Settings></Settings>
     </div>
 </main>
 
 <style>
-    ._header {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-  
     main {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 3fr 1fr;

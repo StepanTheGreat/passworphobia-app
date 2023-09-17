@@ -25,7 +25,7 @@ export async function createAccount(password: string)  {
     await dataStore.set("salt", hmac+encryptedSalt);
 }
 
-export async function loadAccount(password: string) {
+export async function loadAccount(password: string, test: boolean = false) {
     let encryptedToken: string | null =  await dataStore.get("salt");
     if (!encryptedToken) {
         throw new Error("No data found!");
@@ -38,5 +38,8 @@ export async function loadAccount(password: string) {
         throw new Error("Integrity check failed!");
     }
     let decryptedSalt = CryptoJS.AES.decrypt(encryptedSalt, password).toString(CryptoJS.enc.Utf8);
-    storeUserSalt.set(decryptedSalt);
+    
+    if (!test) {
+        storeUserSalt.set(decryptedSalt);
+    }
 }
