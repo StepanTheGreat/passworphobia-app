@@ -6,6 +6,7 @@
 
     export let size: number = 14;
     export let visible: boolean = false;
+    export let value: string = "";
 
     function onInput(e: Event) {
         let data = (e.target as HTMLInputElement).value;
@@ -21,6 +22,7 @@
         {size}
         type={visible? "text" : "password"}
         class="block text-center rounded-md mx-1 bg-primary text-text pr-8 pl-1"
+        {value}
         on:input={onInput}
     />
     <VisibilityButton {visible} callback={() => visible = !visible}></VisibilityButton>
