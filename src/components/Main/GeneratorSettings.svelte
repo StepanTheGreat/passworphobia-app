@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onDestroy } from "svelte";
-    import { storePassLength, SIZE_FACTOR, DEFAULT, storePassChars, NUMBERS, SYMBOLS, LETTERS } from "../store";
-    import { langTable } from "../lang";
+    import { storePassLength, SIZE_FACTOR, DEFAULT, storePassChars, NUMBERS, SYMBOLS, LETTERS } from "../../store";
+    import { langTable } from "../../lang";
 
     let hidden: boolean = true;
     let size_hints: string[];

@@ -1,6 +1,6 @@
 <script lang="ts">
     import { createEventDispatcher } from "svelte";
-    import VisibilityButton from "./VisibilityButton.svelte";
+    import VisibilityButton from "../VisibilityButton.svelte";
 
     const dispatch = createEventDispatcher();
 

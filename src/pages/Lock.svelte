@@ -1,6 +1,6 @@
 <script lang="ts">
-    import LockPass from "../components/LockPass.svelte";
-    import Title from "../components/Title.svelte";
+    import LockPass from "../components/Lock/LockPass.svelte";
+    import Title from "../components/Main/Title.svelte";
     import { loadAccount, createAccount, hasAccount } from "../storage";
     import { AppState, appState } from "../store";
 

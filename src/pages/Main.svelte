@@ -1,7 +1,7 @@
 <script lang="ts">
-    import Generator from "../components/Generator.svelte";
-    import Title from "../components/Title.svelte";
-    import LangBtn from "../components/LangBtn.svelte";
+    import Generator from "../components/Main/Generator.svelte";
+    import Title from "../components/Main/Title.svelte";
+    import LangBtn from "../components/Main/LangBtn.svelte";
     import SwitchState from "../components/SwitchState.svelte";
 </script>
 
