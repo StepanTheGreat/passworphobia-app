@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { langTable } from "../lang";
-    import { storePassInput } from "../store";
-    import VisibilityButton from "./VisibilityButton.svelte";
+    import { langTable } from "../../lang";
+    import { storePassInput } from "../../store";
+    import VisibilityButton from "../VisibilityButton.svelte";
     import { onDestroy } from "svelte";
 
     export let size: number = 14;

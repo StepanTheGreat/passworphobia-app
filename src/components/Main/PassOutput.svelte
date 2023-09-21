@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { storePassOutput } from "../store";
-    import VisibilityButton from "./VisibilityButton.svelte";
+    import { storePassOutput } from "../../store";
+    import VisibilityButton from "../VisibilityButton.svelte";
     import { onDestroy } from "svelte";
 
     export let size: number = 14;
