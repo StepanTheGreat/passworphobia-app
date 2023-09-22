@@ -15,12 +15,12 @@
 <style>
     main {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 3fr 1fr;
+        grid-template-rows: 1fr 3fr;
     }
-  
+/*   
     @media screen and (max-height: 384px) {
         main {
             grid-template-rows: 1fr 4fr;
         }
-    }
+    } */
 </style>
