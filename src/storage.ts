@@ -18,11 +18,12 @@ export async function hasAccount(): Promise<boolean> {
     return await dataStore.get("salt") != null;
 }
 
-export async function createAccount(password: string)  {
-    let newSalt: string = generateSalt(2);
+export async function createAccount(password: string, withSalt: string = "")  {
+    let newSalt: string = withSalt? withSalt: generateSalt(2);
     let encryptedSalt: string = CryptoJS.AES.encrypt(newSalt, password).toString();
     let hmac = CryptoJS.HmacSHA256(encryptedSalt, CryptoJS.SHA256(password)).toString();
     await dataStore.set("salt", hmac+encryptedSalt);
+    await dataStore.save();
 }
 
 export async function loadSalt(password: string): Promise<string> {
