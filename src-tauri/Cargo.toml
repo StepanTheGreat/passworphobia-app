@@ -1,6 +1,6 @@
 [package]
 name = "passworphobia-app"
-version = "0.5.0"
+version = "0.6.0"
 description = "A Tauri App"
 authors = ["Perfect Duo"]
 license = ""
