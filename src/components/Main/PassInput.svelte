@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { langTable } from "../lang";
-    import { storePassInput } from "../store";
-    import VisibilityButton from "./VisibilityButton.svelte";
+    import { langTable } from "../../lang";
+    import { storePassInput } from "../../store";
+    import VisibilityButton from "../VisibilityButton.svelte";
     import { onDestroy } from "svelte";
 
     export let size: number = 14;
@@ -9,7 +9,7 @@
     let inputPlaceholderText: string;
 
     let unsubscribeLang = langTable.subscribe(newTable => {
-        inputPlaceholderText = newTable.generator.input_placeholder;
+        inputPlaceholderText = newTable.generator.inputPlaceholder;
     });
 
     let visible: boolean = false;

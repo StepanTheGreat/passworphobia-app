@@ -3,7 +3,7 @@
     import PassOutput from "./PassOutput.svelte";
     import PassInput from "./PassInput.svelte";
     import PassButton from "./PassButton.svelte";
-    import { storePassInput, storePassOutput, storePassLength, storePassChars, storeUserSalt } from "../store";
+    import { storePassInput, storePassOutput, storePassLength, storePassChars, storeUserSalt } from "../../store";
     import { onDestroy } from "svelte";
     import GeneratorSettings from "./GeneratorSettings.svelte";
 

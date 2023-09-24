@@ -1,17 +1,32 @@
 {
     "generator": {
-        "size_hint": ["Minuscule", "Petit", "Moyen", "Grand", "Très grand"],
-        "settings_numbers": "Chiffres",
-        "settings_scharacters": "Caractères spéciaux",
-        "input_placeholder": "Tapez votre phrase secrète ici..."
+        "sizeHint": ["Très petit", "Petit", "Moyen", "Grand", "Très grand"],
+        "settingsNumbers": "Chiffres",
+        "settingsScharacters": "Caractères spéciaux",
+        "inputPlaceholder": "Tapez votre phrase secrète ici..."
     },
-    "profile": {
-        "logged_in": "Vous êtes connecté en tant que",
-        "logged_out": "Vous n'êtes pas connecté",
-        "sign_out_btn": "Se déconnecter",
-        "sign_in_google_btn": "Se connecter avec Google",
-        "delete_btn": "Supprimer mon compte",
-        "lock_hint": "Maintenez le verrou pour déverrouiller le bouton de suppression"
+    "lock": {
+        "enterNewPassword": "Enregistrez une nouvelle clé pour continuer",
+        "enterOldPassword": "Entrez la clé pour continuer",
+        "notMatchingPasswords": "Les mots de passe ne correspondent pas !",
+        "emptyPassword": "Le mot de passe ne peut pas être vide !",
+        "incorrectPassword": "Mot de passe incorrect !",
+        "continue": "Continuer"
     },
-    "sign_in_text": "Félicitations ! Vous pouvez maintenant fermer cette page et revenir à l'application en toute simplicité !"
+    "settings": {
+        "dangerZone": "ZONE DANGEREUSE",
+        "salt": "Sel",
+        "saltHint": "Génère un nouveau sel fort aléatoire",
+        "regenerate": "Regénérer",
+        "apply": "Appliquer",
+        "save": "Enregistrer",
+        "password": "Mot de passe",
+        "newPassword": "Nouveau mot de passe",
+        "confirmPassword": "Confirmer le mot de passe",
+
+        "successNewPassword": "Le nouveau mot de passe a été défini avec succès !",
+        "nothingToSave": "Rien à enregistrer",
+        "settingsSaved": "Vos nouveaux paramètres ont été enregistrés !",
+        "confirmPasswordDoesntMatch": "Le mot de passe de confirmation ne correspond pas !"
+    }
 }

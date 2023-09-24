@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onDestroy } from "svelte";
-    import { storePassInput, storePassOutput } from "../store";
+    import { storePassInput, storePassOutput } from "../../store";
 
     export let type: string;
     let passOutput: string = "";
