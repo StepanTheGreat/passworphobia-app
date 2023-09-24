@@ -1,7 +1,7 @@
 [package]
 name = "passworphobia-app"
 version = "0.6.0"
-description = "A Tauri App"
+description = "A passwordless password manager"
 authors = ["Perfect Duo"]
 license = ""
 repository = ""
