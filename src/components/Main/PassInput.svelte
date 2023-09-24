@@ -9,7 +9,7 @@
     let inputPlaceholderText: string;
 
     let unsubscribeLang = langTable.subscribe(newTable => {
-        inputPlaceholderText = newTable.generator.input_placeholder;
+        inputPlaceholderText = newTable.generator.inputPlaceholder;
     });
 
     let visible: boolean = false;

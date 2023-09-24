@@ -6,7 +6,7 @@
 </script>
 
 <main class="w-full h-full grid gap-4 bg-background">
-    <div class="_header flex flex-row">
+    <div class="_header">
         <LangBtn></LangBtn>
         <Title></Title>
         <SwitchState to="settings"></SwitchState>

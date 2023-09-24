@@ -12,6 +12,9 @@ export default {
         "primary-dark": "#14187d",
         "secondary": "#060723",
         "accent": "#ff6d00",
+        "success": "#a3e635",
+        "danger": "#dc2626",
+        "warning": "#f59e0b"
       },
       fontFamily: {
         "sen": ["Sen", "Arial", "sans-serif"],

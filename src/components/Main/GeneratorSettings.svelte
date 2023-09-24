@@ -1,20 +1,19 @@
 <script lang="ts">
     import { onDestroy } from "svelte";
     import { storePassLength, SIZE_FACTOR, DEFAULT, storePassChars, NUMBERS, SYMBOLS, LETTERS } from "../../store";
-    import { langTable } from "../../lang";
+    import { fillTable, langTable } from "../../lang";
 
     let hidden: boolean = true;
-    let size_hints: string[];
-    let numbersText: string;
-    let scharsText: string;
+
+    let text: {[key: string]: string|string[]} = {
+        sizeHint: [],
+        settingsNumbers: "",
+        settingsScharacters: ""
+    };
     
     let sizeValue: number = DEFAULT;
 
-    let unsubscribeLang = langTable.subscribe(newTable => {
-        numbersText = newTable.generator.settings_numbers;
-        scharsText = newTable.generator.settings_scharacters;
-        size_hints = newTable.generator.size_hint;
-    });
+    let unsubscribeLang = langTable.subscribe(newTable => text = fillTable(text, newTable));
 
     function onChange() {
         storePassLength.set(sizeValue*SIZE_FACTOR);
@@ -61,7 +60,7 @@
     {#if !hidden}
         <div class="absolute bg-secondary rounded-lg w-64 -translate-x-24 flex flex-col p-2">
             <select class="h-8 mb-4 rounded-md px-1 appearance-none text-text bg-primary" bind:value={sizeValue} on:change={onChange}>
-                {#each size_hints as hint, index}
+                {#each text.sizeHint as hint, index}
                     <option
                         value={index+1}
                         selected={index+1 == DEFAULT}
@@ -72,11 +71,11 @@
 
             <div class="flex flex-row gap-1 mb-2">
                 <input class="w-6 h-6 accent-accent bg-text" bind:checked={numbersOn} type="checkbox" on:input={() => turnSet("numbers")}>
-                <p class="inline-block text-text">{numbersText}</p>
+                <p class="inline-block text-text">{text.settingsNumbers}</p>
             </div>
             <div class="flex flex-row gap-1">
                 <input class="w-6 h-6 accent-accent bg-text" bind:checked={symbolsOn} type="checkbox" on:input={() => turnSet("symbols")}>
-                <p class="inline-block text-text">{scharsText}</p>
+                <p class="inline-block text-text">{text.settingsScharacters}</p>
             </div>
         </div>
     {/if}
