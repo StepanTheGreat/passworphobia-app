@@ -6,6 +6,7 @@
     let hidden: boolean = true;
 
     let text: {[key: string]: string|string[]} = {
+        "":"",
         sizeHint: [],
         settingsNumbers: "",
         settingsScharacters: ""
