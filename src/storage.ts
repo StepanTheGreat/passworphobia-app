@@ -24,19 +24,20 @@ export async function createAccount(password: string, withSalt: string = "")  {
     let hmac = CryptoJS.HmacSHA256(encryptedSalt, CryptoJS.SHA256(password)).toString();
     await dataStore.set("salt", hmac+encryptedSalt);
     await dataStore.save();
+    return newSalt;
 }
 
 export async function loadSalt(password: string): Promise<string> {
     let encryptedToken: string | null =  await dataStore.get("salt");
     if (!encryptedToken) {
-        throw new Error("No data found!");
+        throw new Error("No account data found!");
     }
     let hmac = encryptedToken.substring(0, 64);
     let encryptedSalt = encryptedToken.substring(64);
 
     let decryptedhmac = CryptoJS.HmacSHA256(encryptedSalt, CryptoJS.SHA256(password)).toString();
     if (decryptedhmac != hmac) {
-        throw new Error("Integrity check failed!");
+        throw new Error("Passwords do not match!");
     }
     let decryptedSalt = CryptoJS.AES.decrypt(encryptedSalt, password).toString(CryptoJS.enc.Utf8);
     return decryptedSalt;

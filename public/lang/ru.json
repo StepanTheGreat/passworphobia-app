@@ -1,17 +1,32 @@
 {
     "generator": {
-        "size_hint": ["Крошечный", "Маленький", "Средний", "Большой", "Огромный"],
-        "settings_numbers": "Цифры",
-        "settings_scharacters": "Специальные символы",
-        "input_placeholder": "Введите вашу фразу-пароль здесь..."
+        "sizeHint": ["Мини", "Маленький", "Средний", "Большой", "Гигантский"],
+        "settingsNumbers": "Цифры",
+        "settingsScharacters": "Специальные символы",
+        "inputPlaceholder": "Введите вашу фразу..."
     },
-    "profile": {
-        "logged_in": "Вы вошли как",
-        "logged_out": "Вы не вошли в систему",
-        "sign_out_btn": "Выйти",
-        "sign_in_google_btn": "Войти с помощью Google",
-        "delete_btn": "Удалить мой аккаунт",
-        "lock_hint": "Удерживайте замок, чтобы разблокировать кнопку удаления"
+    "lock": {
+        "enterNewPassword": "Зарегистрируйте новый ключ чтобы продолжить",
+        "enterOldPassword": "Введите ключ чтобы продолжить",
+        "notMatchingPasswords": "Пароли не совпадают!",
+        "emptyPassword": "Пароль не может быть пустым!",
+        "incorrectPassword": "Неверный пароль!",
+        "continue": "Продолжить"
     },
-    "sign_in_text": "Поздравляем! Теперь вы можете спокойно закрыть эту страницу и легко вернуться к использованию приложения!"
+    "settings": {
+        "dangerZone": "ОПАСНАЯ ЗОНА",
+        "salt": "Соль",
+        "saltHint": "Генерирует новую, случайную и безопасную соль",
+        "regenerate": "Перегенерировать",
+        "apply": "Сохранить",
+        "save": "Сохранить",
+        "password": "Пароль",
+        "newPassword": "Новый пароль",
+        "confirmPassword": "Подтверждение пароля",
+
+        "successNewPassword": "Новый пароль успешно установлен!", 
+        "nothingToSave": "Новых изменений не найдено",
+        "settingsSaved": "Изменения сохранены!",
+        "confirmPasswordDoesntMatch": "Подтверждённый пароль неправильный!"  
+    }
 }
