@@ -1,9 +1,13 @@
-import { writable } from "svelte/store";
+import { get, writable } from "svelte/store";
 //@ts-ignore
 import stdLang from "/src/assets/en.json";
+import { confStore } from "./storage";
+
+type LangSection = {[key: string]: string|string[]};
+type LangTable = {[key: string]: LangSection};
 
 const LANGS: string[] = ["en", "et", "fr", "ru", "ua"];
-const hasStorage: boolean = typeof(Storage) !== "undefined";
+export let langTable = writable(stdLang);
 
 export function langLoad(newLang: string) {
     if (LANGS.includes(newLang) && newLang != "en") {
@@ -14,24 +18,29 @@ export function langLoad(newLang: string) {
             console.error("Error fetching JSON:", error);
         });
     } else if (newLang == "en") {
-        langTable.set(stdLang);
+        langTable.set(stdLang)
     }
 }
 
-export function saveLang(lang: string) {
-    if (hasStorage) {
-        localStorage.setItem("lang", lang);
-    }
+export async function saveLang(lang: string) {
+    await confStore.set("lang", lang);
+    await confStore.save();
 }
 
-export function getLang(): string {
-    if (hasStorage) {
-        let lang = localStorage.getItem("lang");
-        return lang? lang : "en";
-    } else {
-        return "en";
-    }
+export async function getLang(): Promise<string> {
+    let lang: string | null = await confStore.get("lang");
+    return lang? lang : "en";
 }
 
-export let langTable = writable(stdLang);
-langLoad(getLang());
+export function fillTable(requestTable: LangSection, newTable: LangTable): LangSection {
+    Object.values(newTable).forEach(section => 
+        Object.entries(section).forEach(([key, value]) => {
+            if (key in requestTable) {
+                requestTable[key] = value;
+            }
+        }
+    ));
+    return requestTable;
+}
+
+getLang().then(lang => langLoad(lang));

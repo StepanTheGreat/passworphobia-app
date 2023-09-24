@@ -1,17 +1,32 @@
 {
     "generator": {
-        "size_hint": ["Väga väike", "Väike", "Keskmine", "Suur", "Väga suur"],
-        "settings_numbers": "Numbrid",
-        "settings_scharacters": "Erisümbolid",
-        "input_placeholder": "Sisestage oma parool siia..."
+        "sizeHint": ["Väike", "Väike", "Keskmine", "Suur", "Väga suur"],
+        "settingsNumbers": "Numbrid",
+        "settingsScharacters": "Eriksümbolid",
+        "inputPlaceholder": "Sisestage oma fraas siia..."
     },
-    "profile": {
-        "logged_in": "Olete sisse logitud kui",
-        "logged_out": "Te ei ole sisse logitud",
-        "sign_out_btn": "Logi välja",
-        "sign_in_google_btn": "Logi sisse Google'i kontoga",
-        "delete_btn": "Kustuta minu konto",
-        "lock_hint": "Hoidke lukustust, et avada kustutusnuppu"
+    "lock": {
+        "enterNewPassword": "Registreerige uus võti jätkamiseks",
+        "enterOldPassword": "Sisestage jätkamiseks võti",
+        "notMatchingPasswords": "Paroolid ei ühti!",
+        "emptyPassword": "Parool ei saa olla tühi!",
+        "incorrectPassword": "Vale parool!",
+        "continue": "Jätka"
     },
-    "sign_in_text": "Palju õnne! Nüüd võite julgesti selle lehe sulgeda ja sujuvalt rakendusse tagasi liikuda!"
+    "settings": {
+        "dangerZone": "OHTLIK TSOON",
+        "salt": "Sool",
+        "saltHint": "Genereerib uue, juhusliku ja tugeva soola",
+        "regenerate": "Regenereeri",
+        "apply": "Kohaldada",
+        "save": "Salvestada",
+        "password": "Parool",
+        "newPassword": "Uus parool",
+        "confirmPassword": "Parooli kinnitus",
+
+        "successNewPassword": "Uus parool on edukalt seatud!", 
+        "nothingToSave": "Midagi salvestamiseks pole",
+        "settingsSaved": "Uued muudatused on kinnitatud!",
+        "confirmPasswordDoesntMatch": "Kinnituse parool ei ühti!"
+    }
 }

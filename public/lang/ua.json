@@ -1,17 +1,33 @@
 {
     "generator": {
-        "size_hint": ["Крихітний", "Малий", "Середній", "Крупний", "Великий"],
-        "settings_numbers": "Цифри",
-        "settings_scharacters": "Спеціальні символи",
-        "input_placeholder": "Введіть вашу фразу-пароль тут..."
+        "sizeHint": ["Міні", "Маленький", "Середній", "Великий", "Громіздкий"],
+        "settingsNumbers": "Цифри",
+        "settingsScharacters": "Спеціальні символи",
+        "inputPlaceholder": "Введіть вашу фразу..."
     },
-    "profile": {
-        "logged_in": "Ви увійшли як",
-        "logged_out": "Ви не увійшли",
-        "sign_out_btn": "Вийти",
-        "sign_in_google_btn": "Увійти за допомогою Google",
-        "delete_btn": "Видалити мій обліковий запис",
-        "lock_hint": "Утримуйте замок, щоб розблокувати кнопку видалення"
+    "lock": {
+        "enterNewPassword": "Зареєструйте новий ключ щоб продовжити",
+        "enterOldPassword": "Введіть ключ щоб продовжити",
+        "notMatchingPasswords": "Паролі не співпадають!",
+        "emptyPassword": "Пароль не може бути порожнім!",
+        "incorrectPassword": "Неправильний пароль!",
+        "continue": "Продовжити"
     },
-    "sign_in_text": "Вітаємо! Тепер ви можете безпечно закрити цю сторінку та з легкістю повернутися до застосунку!"
+    "settings": {
+        "dangerZone": "НЕБЕЗПЕЧНА ЗОНА",
+        "salt": "Сіль",
+        "saltHint": "Генерує нову, випадкову і міцну сіль",
+        "regenerate": "Перегенерувати",
+        "apply": "Зберегти",
+        "save": "Зберегти",
+        "password": "Пароль",
+        "newPassword": "Новий пароль",
+        "confirmPassword": "Підтвердження пароля",
+
+        "successNewPassword": "Новий пароль успішно встановлено!", 
+        "nothingToSave": "Нових змін не знайдено",
+        "settingsSaved": "Ваші нові налаштування збережено!",
+        "confirmPasswordDoesntMatch": "Підтвердженний пароль не співпадає!"  
+    }
 }
+
