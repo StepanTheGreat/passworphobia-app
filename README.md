@@ -14,6 +14,7 @@ Additionaly featuring a customizable, basic character set and size list for pass
 - Estonian
 - Ukrainian
 - Russian
+
 *Issues are accepted, in case you have a better/more concise translation request*
 
 # Building from source
