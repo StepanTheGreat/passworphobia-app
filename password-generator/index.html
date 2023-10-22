@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>password-generator testing</title>
+	</head>
+	<body>
+		<script type="module">
+			import init, { generate_password } from "./pkg/password_generator.js";
+
+			const options = {
+				chars: "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789",
+				length: 40
+			}
+
+			const input = document.getElementById("input");
+			const button = document.getElementById("button");
+
+			button.addEventListener("click", () => {
+				init().then(() => {
+					console.log(generate_password(input.value, options.chars, options.length));
+				});
+			})
+
+		</script>
+		<input id="input" type="text"/>
+		<input id="size" type="range"/>
+		<button id="button" style="width: 100px; height: 40px"></button>
+	</body>
+</html>
