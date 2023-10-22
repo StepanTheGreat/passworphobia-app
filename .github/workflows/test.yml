@@ -7,7 +7,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [macos-latest, ubuntu-20.04, windows-latest]
+        platform: [macos-latest, windows-latest]
 
     runs-on: ${{ matrix.platform }}
     steps:
@@ -18,11 +18,23 @@ jobs:
           node-version: 16
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable
-      - name: install dependencies (ubuntu only)
-        if: matrix.platform == 'ubuntu-20.04'
+      
+      - name: go to the root path
+        run: cd $GITHUB_WORKSPACE
+
+      - name: compile password-generator wasm library
         run: |
-          sudo apt-get update
-          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
+          cd ./password-generator
+          cargo install wasm-pack
+          wasm-pack build --target bundler
+          cd ./pkg
+          npm link
+
+      - name: return back and link password-generator
+        run: |
+          cd $GITHUB_WORKSPACE
+          npm link password-generator
+
       - name: install frontend dependencies
         run: npm install
       - uses: tauri-apps/tauri-action@v0
