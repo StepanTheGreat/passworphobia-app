@@ -38,7 +38,7 @@ using tauri and node.js via `npm tauri build`.
     3. Build as a JS library with `wasm-pack build --target bundler`
     4. Go to the pkg dir `cd pkg`
     5. Link it to npm `npm link`
-    6. Return back to main directory `cd passworphobia-app`
+    6. Return back to main directory `cd ../../`
     7. Link it here too `npm link password-generator`
 5. Build with `npm tauri build` (Release binary)
 
