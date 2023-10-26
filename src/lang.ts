@@ -8,6 +8,7 @@ type LangTable = {[key: string]: LangSection};
 
 const LANGS: string[] = ["en", "et", "fr", "ru", "ua"];
 export let langTable = writable(stdLang);
+export let currentLang = "en";
 
 export function langLoad(newLang: string) {
     if (LANGS.includes(newLang) && newLang != "en") {
@@ -17,7 +18,9 @@ export function langLoad(newLang: string) {
         ).catch(error => {
             console.error("Error fetching JSON:", error);
         });
+        currentLang = newLang;
     } else if (newLang == "en") {
+        currentLang = "en";
         langTable.set(stdLang)
     }
 }
@@ -43,4 +46,7 @@ export function fillTable(requestTable: LangSection, newTable: LangTable): LangS
     return requestTable;
 }
 
-getLang().then(lang => langLoad(lang));
+getLang().then(lang => {
+    langLoad(lang);
+    currentLang = lang;
+});

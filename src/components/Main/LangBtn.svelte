@@ -1,8 +1,6 @@
 <script lang="ts">
-    import { getLang, langLoad, saveLang } from "../../lang";
-    let lang: string;
-
-    getLang().then(newLang => lang = newLang);
+    import { currentLang, langLoad, saveLang } from "../../lang";
+    let lang: string = currentLang;
 
     let langs = {
         "en": "EN", 
