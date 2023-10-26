@@ -1,9 +1,12 @@
 {
     "generator": {
+        "size": "Password length:",
         "sizeHint": ["Väike", "Väike", "Keskmine", "Suur", "Väga suur"],
+        "characters": "Password characters in use:",
         "settingsNumbers": "Numbrid",
         "settingsScharacters": "Eriksümbolid",
-        "inputPlaceholder": "Sisestage oma fraas siia..."
+        "inputPlaceholder": "Sisestage oma fraas siia...",
+        "outputPlaceholder": "Your generated password..."
     },
     "lock": {
         "enterNewPassword": "Registreerige uus võti jätkamiseks",
@@ -21,8 +24,8 @@
         "apply": "Kohaldada",
         "save": "Salvestada",
         "password": "Parool",
-        "newPassword": "Uus parool",
-        "confirmPassword": "Parooli kinnitus",
+        "newPasswordHint": "Here, double type your new desired master password",
+        "confirmPasswordHint": "Type your old master password to update the settings",
 
         "successNewPassword": "Uus parool on edukalt seatud!", 
         "nothingToSave": "Midagi salvestamiseks pole",

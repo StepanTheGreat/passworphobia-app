@@ -7,6 +7,8 @@
 
     let text: {[key: string]: string|string[]} = {
         "":"",
+        size: "",
+        characters: "",
         sizeHint: [],
         settingsNumbers: "",
         settingsScharacters: ""
@@ -60,6 +62,7 @@
 
     {#if !hidden}
         <div class="absolute bg-secondary rounded-lg w-64 -translate-x-24 flex flex-col p-2">
+            <p class="text-text mb-1">{text.size}</p>
             <select class="h-8 mb-4 rounded-md px-1 appearance-none text-text bg-primary" bind:value={sizeValue} on:change={onChange}>
                 {#each text.sizeHint as hint, index}
                     <option
@@ -69,7 +72,7 @@
                     </option>
                 {/each}
             </select>
-
+            <p class="text-text mb-2">{text.characters}</p>
             <div class="flex flex-row gap-1 mb-2">
                 <input class="w-6 h-6 accent-accent bg-text" bind:checked={numbersOn} type="checkbox" on:input={() => turnSet("numbers")}>
                 <p class="inline-block text-text">{text.settingsNumbers}</p>

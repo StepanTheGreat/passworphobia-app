@@ -5,15 +5,15 @@
         "characters": "Password characters in use:",
         "settingsNumbers": "Numbers",
         "settingsScharacters": "Special characters",
-        "inputPlaceholder": "Type your passphrase here...",
-        "outputPlaceholder": "Here will be your generated password..."
+        "inputPlaceholder": "Your passphrase...",
+        "outputPlaceholder": "Your generated password..."
     },
     "lock": {
-        "enterNewPassword": "Register a new key to proceed",
-        "enterOldPassword": "Enter the key to proceed",
+        "enterNewPassword": "Register a master password (2 times) to proceed",
+        "enterOldPassword": "Enter the master password to proceed",
         "notMatchingPasswords": "Passwords do not match!",
-        "emptyPassword": "Password cannot be empty!",
-        "incorrectPassword": "Incorrect password!",
+        "emptyPassword": "Master password cannot be empty!",
+        "incorrectPassword": "Incorrect master password!",
         "continue": "Continue"
     },
     "settings": {
@@ -23,15 +23,13 @@
         "regenerate": "Regenerate",
         "apply": "Apply",
         "save": "Save",
-        "password": "Password",
-        "newPassword": "New password",
-        "newPasswordHint": "Here, double type your new desired password",
-        "confirmPassword": "Confirmation password",
-        "confirmPasswordHint": "Type your old password to update the settings.",
+        "password": "Master password",
+        "newPasswordHint": "Here, double type your new desired master password",
+        "confirmPasswordHint": "Type your old master password to update the settings",
 
         "successNewPassword": "Succesfully set the new password!", 
         "nothingToSave": "Nothing to save",
         "settingsSaved": "Your new settings were saved!",
-        "confirmPasswordDoesntMatch": "The confirmation password doesn't match!"  
+        "confirmPasswordDoesntMatch": "The master password doesn't match!"  
     }
 }

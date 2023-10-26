@@ -6,7 +6,7 @@ import { confStore } from "./storage";
 type LangSection = {[key: string]: string|string[]};
 type LangTable = {[key: string]: LangSection};
 
-const LANGS: string[] = ["en", "et", "fr", "ru", "ua"];
+const LANGS: string[] = ["en", "et", "fr", "ua", "ru"];
 export let langTable = writable(stdLang);
 export let currentLang = "en";
 

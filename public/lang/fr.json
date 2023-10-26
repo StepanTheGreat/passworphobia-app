@@ -1,16 +1,19 @@
 {
     "generator": {
+        "size": "Longeur du mot de passe:",
         "sizeHint": ["Très petit", "Petit", "Moyen", "Grand", "Très grand"],
+        "characters": "Caractères du mot de passe utilisés:",
         "settingsNumbers": "Chiffres",
         "settingsScharacters": "Caractères spéciaux",
-        "inputPlaceholder": "Tapez votre phrase secrète ici..."
+        "inputPlaceholder": "Votre phrase secrète...",
+        "outputPlaceholder": "Votre mot de passe généré..."
     },
     "lock": {
-        "enterNewPassword": "Enregistrez une nouvelle clé pour continuer",
-        "enterOldPassword": "Entrez la clé pour continuer",
-        "notMatchingPasswords": "Les mots de passe ne correspondent pas !",
-        "emptyPassword": "Le mot de passe ne peut pas être vide !",
-        "incorrectPassword": "Mot de passe incorrect !",
+        "enterNewPassword": "Enregistrez un mot de passe principal (2 fois) pour continuer",
+        "enterOldPassword": "Entrez le mot de passe principal pour continuer",
+        "notMatchingPasswords": "Les mots de passe ne correspondent pas!",
+        "emptyPassword": "Le mot de passe principal ne peut pas être vide!",
+        "incorrectPassword": "Mot de passe principal incorrect!",
         "continue": "Continuer"
     },
     "settings": {
@@ -20,13 +23,13 @@
         "regenerate": "Regénérer",
         "apply": "Appliquer",
         "save": "Enregistrer",
-        "password": "Mot de passe",
-        "newPassword": "Nouveau mot de passe",
-        "confirmPassword": "Confirmer le mot de passe",
+        "password": "Mot de passe principal",
+        "newPasswordHint": "Ici, tapez deux fois votre nouveau mot de passe principal souhaitè",
+        "confirmPasswordHint": "Tapez votre ancien mot de passe principal pour mettre à jour les paramètres",
 
-        "successNewPassword": "Le nouveau mot de passe a été défini avec succès !",
+        "successNewPassword": "Le nouveau mot de passe principal a été défini avec succès!",
         "nothingToSave": "Rien à enregistrer",
-        "settingsSaved": "Vos nouveaux paramètres ont été enregistrés !",
-        "confirmPasswordDoesntMatch": "Le mot de passe de confirmation ne correspond pas !"
+        "settingsSaved": "Vos nouveaux paramètres ont été enregistrés!",
+        "confirmPasswordDoesntMatch": "Le mot de passe principal ne correspond pas!"
     }
 }

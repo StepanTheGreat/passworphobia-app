@@ -27,10 +27,6 @@ html, body {
     background: none;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: theme("colors.primary-dark");
+    background-color: theme("colors.secondary");
     border-radius: 8px;
-}
-
-::-webkit-scrollbar-thumb:active {
-    background-color: theme("colors.primary-dark");
 }
