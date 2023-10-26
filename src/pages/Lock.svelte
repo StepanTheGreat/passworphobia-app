@@ -14,7 +14,7 @@
     };
 
     let entryType: EntryType = EntryType.New;
-    //hasAccount().then(has => entryType = (has)? EntryType.Existing : EntryType.New);
+    hasAccount().then(has => entryType = (has)? EntryType.Existing : EntryType.New);
 
     let text: {[key: string]: string|string[]} = {
         "": "",
