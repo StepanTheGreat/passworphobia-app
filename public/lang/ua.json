@@ -1,16 +1,19 @@
 {
     "generator": {
+        "size": "Довжина паролю:",
         "sizeHint": ["Міні", "Маленький", "Середній", "Великий", "Громіздкий"],
+        "characters": "Символи у паролі:",
         "settingsNumbers": "Цифри",
         "settingsScharacters": "Спеціальні символи",
-        "inputPlaceholder": "Введіть вашу фразу..."
+        "inputPlaceholder": "Ваша секрет-фраза...",
+        "outputPlaceholder": "Ваш згенерований пароль..."
     },
     "lock": {
-        "enterNewPassword": "Зареєструйте новий ключ щоб продовжити",
-        "enterOldPassword": "Введіть ключ щоб продовжити",
+        "enterNewPassword": "Зареєструйте мастер пароль (2 рази) щоб продовжити",
+        "enterOldPassword": "Введіть мастер пароль щоб продовжити",
         "notMatchingPasswords": "Паролі не співпадають!",
-        "emptyPassword": "Пароль не може бути порожнім!",
-        "incorrectPassword": "Неправильний пароль!",
+        "emptyPassword": "Мастер пароль не може бути порожнім!",
+        "incorrectPassword": "Невірний мастер пароль!",
         "continue": "Продовжити"
     },
     "settings": {
@@ -20,14 +23,14 @@
         "regenerate": "Перегенерувати",
         "apply": "Зберегти",
         "save": "Зберегти",
-        "password": "Пароль",
-        "newPassword": "Новий пароль",
-        "confirmPassword": "Підтвердження пароля",
+        "password": "Мастер пароль",
+        "newPasswordHint": "Нижче, введіть 2 рази ваш новий мастер пароль",
+        "confirmPasswordHint": "Введіть ваш останній мастер пароль щоб оновити налаштування",
 
-        "successNewPassword": "Новий пароль успішно встановлено!", 
+        "successNewPassword": "Новий мастер пароль успішно встановлено!", 
         "nothingToSave": "Нових змін не знайдено",
         "settingsSaved": "Ваші нові налаштування збережено!",
-        "confirmPasswordDoesntMatch": "Підтвердженний пароль не співпадає!"  
+        "confirmPasswordDoesntMatch": "Мастер пароль не співпадає!"  
     }
 }
 
