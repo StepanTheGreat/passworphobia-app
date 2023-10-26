@@ -14,3 +14,23 @@ html, body {
     width: 100%;
     height: 100%;
 }
+
+/* On windows, tauri uses microsoft webview */
+*::-ms-reveal {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: none;
+}
+::-webkit-scrollbar-thumb {
+    background-color: theme("colors.primary-dark");
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: theme("colors.primary-dark");
+}

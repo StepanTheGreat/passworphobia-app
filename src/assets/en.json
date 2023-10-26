@@ -1,9 +1,12 @@
 {
     "generator": {
+        "size": "Password length:",
         "sizeHint": ["Tiny", "Small", "Medium", "Big", "Large"],
+        "characters": "Password characters in use:",
         "settingsNumbers": "Numbers",
         "settingsScharacters": "Special characters",
-        "inputPlaceholder": "Type your passphrase here..."
+        "inputPlaceholder": "Type your passphrase here...",
+        "outputPlaceholder": "Here will be your generated password..."
     },
     "lock": {
         "enterNewPassword": "Register a new key to proceed",
@@ -22,7 +25,9 @@
         "save": "Save",
         "password": "Password",
         "newPassword": "New password",
+        "newPasswordHint": "Here, double type your new desired password",
         "confirmPassword": "Confirmation password",
+        "confirmPasswordHint": "Type your old password to update the settings.",
 
         "successNewPassword": "Succesfully set the new password!", 
         "nothingToSave": "Nothing to save",

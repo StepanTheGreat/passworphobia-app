@@ -140,7 +140,7 @@
         </div>
         <p class="{passwordsHint.color} italic text-center mb-2">{text[passwordsHint.key]}</p>
         <div class="w-full flex flex-col">
-            <button class="bg-primary text-text px-8 py-2 rounded-md mx-auto" on:click={setNewPassword}>{text.newPassword}</button>
+            <button class="bg-primary text-text px-8 py-2 rounded-md mx-auto" on:click={setNewPassword}>{text.apply}</button>
         </div>
     </div>
 
