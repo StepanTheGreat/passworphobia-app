@@ -1,8 +1,8 @@
 {
     "generator": {
-        "size": "Password length:",
+        "size": "Password pikkus:",
         "sizeHint": ["Väike", "Väike", "Keskmine", "Suur", "Väga suur"],
-        "characters": "Password characters in use:",
+        "characters": "Kasutusel olevad parool tähemargid:",
         "settingsNumbers": "Numbrid",
         "settingsScharacters": "Eriksümbolid",
         "inputPlaceholder": "Sisestage oma fraas siia...",
@@ -24,8 +24,8 @@
         "apply": "Kohaldada",
         "save": "Salvestada",
         "password": "Parool",
-        "newPasswordHint": "Here, double type your new desired master password",
-        "confirmPasswordHint": "Type your old master password to update the settings",
+        "newPasswordHint": "Siin, sisestage oma uus meistriparool kaks korda",
+        "confirmPasswordHint": "Sisestage oma vana meistriparool, et salvestada seaded",
 
         "successNewPassword": "Uus parool on edukalt seatud!", 
         "nothingToSave": "Midagi salvestamiseks pole",
