@@ -5,8 +5,8 @@
         "characters": "Kasutusel olevad parool tähemargid:",
         "settingsNumbers": "Numbrid",
         "settingsScharacters": "Eriksümbolid",
-        "inputPlaceholder": "Sisestage oma fraas siia...",
-        "outputPlaceholder": "Your generated password..."
+        "inputPlaceholder": "Sisestage oma saladuse fraas siia...",
+        "outputPlaceholder": "Teie loodud parool..."
     },
     "lock": {
         "enterNewPassword": "Registreerige uus võti jätkamiseks",
@@ -30,6 +30,6 @@
         "successNewPassword": "Uus parool on edukalt seatud!", 
         "nothingToSave": "Midagi salvestamiseks pole",
         "settingsSaved": "Uued muudatused on kinnitatud!",
-        "confirmPasswordDoesntMatch": "Kinnituse parool ei ühti!"
+        "confirmPasswordDoesntMatch": "Meistriparool ei ühti!"
     }
 }
