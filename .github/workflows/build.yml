@@ -23,11 +23,10 @@ jobs:
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable
 
-      - name: go to the root path
-        run: cd $GITHUB_WORKSPACE
-
-      - name: go to password-generator
-        run: cd ./password-generator
+      - name: go to password generator
+        run: |
+          cd $GITHUB_WORKSPACE
+          cd ./password-generator
 
       - name: test the wasm-library
         run: cargo test --verbose 
