@@ -18,17 +18,12 @@ jobs:
           node-version: 16
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable
-      
-      - name: go to password generator
-        run: |
-          cd $GITHUB_WORKSPACE
-          cd ./password-generator
-
-      - name: test the wasm-library
-        run: cargo test --verbose 
 
       - name: compile password-generator wasm library
         run: |
+          cd $GITHUB_WORKSPACE
+          cd ./password-generator
+          cargo test --verbose
           cargo install wasm-pack
           wasm-pack build --target bundler
           cd ./pkg
