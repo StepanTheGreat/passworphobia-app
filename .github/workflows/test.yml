@@ -20,9 +20,7 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
 
       - name: go to password-generator
-        run: |
-          cd $GITHUB_WORKSPACE
-          cd password-generator
+        run: cd $GITHUB_WORKSPACE/password-generator
 
       - name: test password-generator
         run: cargo test --verbose
