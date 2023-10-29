@@ -28,7 +28,7 @@ pub fn generate_password(
 
     let mut generated = String::new();
     for i in 0..length {
-        let rng = if i%2 != 0 {&mut rng1} else {&mut rng2};
+        let rng = if i%2 == 0 {&mut rng1} else {&mut rng2};
 
         let index: usize = rng.gen_range(0..chars.len());
         generated += &chars.chars().nth(index).unwrap().to_string();

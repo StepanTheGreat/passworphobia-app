@@ -6,8 +6,9 @@ import { confStore } from "./storage";
 type LangSection = {[key: string]: string|string[]};
 type LangTable = {[key: string]: LangSection};
 
-const LANGS: string[] = ["en", "et", "fr", "ru", "ua"];
+const LANGS: string[] = ["en", "et", "fr", "ua", "ru"];
 export let langTable = writable(stdLang);
+export let currentLang = writable("en");
 
 export function langLoad(newLang: string) {
     if (LANGS.includes(newLang) && newLang != "en") {
@@ -17,7 +18,9 @@ export function langLoad(newLang: string) {
         ).catch(error => {
             console.error("Error fetching JSON:", error);
         });
+        currentLang.set(newLang);
     } else if (newLang == "en") {
+        currentLang.set("en");
         langTable.set(stdLang)
     }
 }
@@ -43,4 +46,7 @@ export function fillTable(requestTable: LangSection, newTable: LangTable): LangS
     return requestTable;
 }
 
-getLang().then(lang => langLoad(lang));
+getLang().then(lang => {
+    langLoad(lang);
+    currentLang.set(lang);
+});

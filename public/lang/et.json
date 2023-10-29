@@ -1,13 +1,16 @@
 {
     "generator": {
+        "size": "Password pikkus:",
         "sizeHint": ["Väike", "Väike", "Keskmine", "Suur", "Väga suur"],
+        "characters": "Kasutusel olevad parool tähemargid:",
         "settingsNumbers": "Numbrid",
         "settingsScharacters": "Eriksümbolid",
-        "inputPlaceholder": "Sisestage oma fraas siia..."
+        "inputPlaceholder": "Sisestage oma saladuse fraas siia...",
+        "outputPlaceholder": "Teie loodud parool..."
     },
     "lock": {
         "enterNewPassword": "Registreerige uus võti jätkamiseks",
-        "enterOldPassword": "Sisestage jätkamiseks võti",
+        "enterOldPassword": "Sisestage meistriparool, et jätkata.",
         "notMatchingPasswords": "Paroolid ei ühti!",
         "emptyPassword": "Parool ei saa olla tühi!",
         "incorrectPassword": "Vale parool!",
@@ -21,12 +24,12 @@
         "apply": "Kohaldada",
         "save": "Salvestada",
         "password": "Parool",
-        "newPassword": "Uus parool",
-        "confirmPassword": "Parooli kinnitus",
+        "newPasswordHint": "Siin, sisestage oma uus meistriparool kaks korda",
+        "confirmPasswordHint": "Sisestage oma vana meistriparool, et salvestada seaded",
 
         "successNewPassword": "Uus parool on edukalt seatud!", 
         "nothingToSave": "Midagi salvestamiseks pole",
         "settingsSaved": "Uued muudatused on kinnitatud!",
-        "confirmPasswordDoesntMatch": "Kinnituse parool ei ühti!"
+        "confirmPasswordDoesntMatch": "Meistriparool ei ühti!"
     }
 }
