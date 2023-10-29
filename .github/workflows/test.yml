@@ -20,13 +20,12 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
 
       - name: go to password-generator
-        run: cd $GITHUB_WORKSPACE/password-generator
+        run: cd $GITHUB_WORKSPACE
 
-      - name: test password-generator
-        run: cargo test --verbose
-
-      - name: compile password-generator wasm library
+      - name: compile and test password-generator
         run: |
+          cd password-generator
+          cargo test --verbose
           cargo install wasm-pack
           wasm-pack build --target bundler
           cd pkg
