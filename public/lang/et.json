@@ -10,7 +10,7 @@
     },
     "lock": {
         "enterNewPassword": "Registreerige uus võti jätkamiseks",
-        "enterOldPassword": "Sisestage jätkamiseks võti",
+        "enterOldPassword": "Sisestage meistriparool, et jätkata.",
         "notMatchingPasswords": "Paroolid ei ühti!",
         "emptyPassword": "Parool ei saa olla tühi!",
         "incorrectPassword": "Vale parool!",
