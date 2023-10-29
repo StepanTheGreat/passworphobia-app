@@ -148,6 +148,6 @@
         <p class="text-text italic text-center mb-2">{text.confirmPasswordHint}</p>
         <LockPass size={32} on:passInput={e => onPassInput(e, "old")}></LockPass>
         <p class="{confirmationHint.color} italic text-center mb-2">{text[confirmationHint.key]}</p>
-        <button class="bg-accent text-text px-16 py-4 rounded-xl mx-auto" on:click={saveSettings}>Save</button>
+        <button class="bg-accent text-text px-16 py-4 rounded-xl mx-auto" on:click={saveSettings}>{text.save}</button>
     </div>
 </div>
