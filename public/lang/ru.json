@@ -1,16 +1,19 @@
 {
     "generator": {
+        "size": "Длина пароля:",
         "sizeHint": ["Мини", "Маленький", "Средний", "Большой", "Гигантский"],
+        "characters": "Символы пароля:",
         "settingsNumbers": "Цифры",
         "settingsScharacters": "Специальные символы",
-        "inputPlaceholder": "Введите вашу фразу..."
+        "inputPlaceholder": "Ваша секрет-фраза...",
+        "outputPlaceholder": "Ваш сгенерированный пароль..."
     },
     "lock": {
-        "enterNewPassword": "Зарегистрируйте новый ключ чтобы продолжить",
-        "enterOldPassword": "Введите ключ чтобы продолжить",
+        "enterNewPassword": "Зарегистрируйте мастер пароль (2 раза) чтобы продолжить",
+        "enterOldPassword": "Введите мастер пароль чтобы продолжить",
         "notMatchingPasswords": "Пароли не совпадают!",
-        "emptyPassword": "Пароль не может быть пустым!",
-        "incorrectPassword": "Неверный пароль!",
+        "emptyPassword": "Мастер пароль не может быть пустым!",
+        "incorrectPassword": "Неверный мастер пароль!",
         "continue": "Продолжить"
     },
     "settings": {
@@ -20,13 +23,13 @@
         "regenerate": "Перегенерировать",
         "apply": "Сохранить",
         "save": "Сохранить",
-        "password": "Пароль",
-        "newPassword": "Новый пароль",
-        "confirmPassword": "Подтверждение пароля",
+        "password": "Мастер пароль",
+        "newPasswordHint": "Ниже, введите 2 раза ваш новый мастер пароль",
+        "confirmPasswordHint": "Введите ваш старый мастер пароль чтобы сохранить настройки",
 
-        "successNewPassword": "Новый пароль успешно установлен!", 
+        "successNewPassword": "Новый мастер пароль успешно установлен!", 
         "nothingToSave": "Новых изменений не найдено",
         "settingsSaved": "Изменения сохранены!",
-        "confirmPasswordDoesntMatch": "Подтверждённый пароль неправильный!"  
+        "confirmPasswordDoesntMatch": "Мастер пароль не совпадает!"  
     }
 }

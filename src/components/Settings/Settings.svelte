@@ -20,11 +20,11 @@
         apply: "",
         save: "",
         password: "",
-        newPassword: "",
-        confirmPassword: "",
+        newPasswordHint: "",
         successNewPassword: "",
         nothingToSave: "",
         settingsSaved: "",
+        confirmPasswordHint: "",
         confirmPasswordDoesntMatch: "",
         notMatchingPasswords: "",
         emptyPassword: "",
@@ -133,21 +133,21 @@
         <h1 class="text-text text-4xl text-center">{text.password}</h1>
         <div class="my-4">
             <div class="mt-4 flex flex-col">
-                <p class="text-text text-md text-center my-1">{text.newPassword}</p>
+                <p class="text-text italic text-md text-center my-1 mb-3">{text.newPasswordHint}</p>
                 <LockPass size={32} on:passInput={e => onPassInput(e, "new1")}></LockPass>
                 <LockPass size={32} on:passInput={e => onPassInput(e, "new2")}></LockPass>
             </div>
         </div>
         <p class="{passwordsHint.color} italic text-center mb-2">{text[passwordsHint.key]}</p>
         <div class="w-full flex flex-col">
-            <button class="bg-primary text-text px-8 py-2 rounded-md mx-auto" on:click={setNewPassword}>{text.newPassword}</button>
+            <button class="bg-primary text-text px-8 py-2 rounded-md mx-auto" on:click={setNewPassword}>{text.apply}</button>
         </div>
     </div>
 
     <div class="w-full flex flex-col mb-8">
-        <p class="text-text text-md text-center my-1">{text.confirmPassword}</p>
+        <p class="text-text italic text-center mb-2">{text.confirmPasswordHint}</p>
         <LockPass size={32} on:passInput={e => onPassInput(e, "old")}></LockPass>
         <p class="{confirmationHint.color} italic text-center mb-2">{text[confirmationHint.key]}</p>
-        <button class="bg-accent text-text px-16 py-4 rounded-xl mx-auto" on:click={saveSettings}>Save</button>
+        <button class="bg-accent text-text px-16 py-4 rounded-xl mx-auto" on:click={saveSettings}>{text.save}</button>
     </div>
 </div>

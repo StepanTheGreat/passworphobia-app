@@ -31,8 +31,7 @@ using tauri and node.js via `npm tauri build`.
 
 1. Obviously, you should have both Rust *(We use 1.26)* and NodeJS *(We use 18.16)*
 2. Clone our repository `git clone https://github.com/StepanTheGreat/passworphobia-app`
-3. Install npm packages, via `npm install`
-4. Compile `password-generator`:
+3. Compile `password-generator`:
     1. Install wasm-pack `cargo install wasm-pack`
     2. Go to the library directory `cd password-generator`
     3. Build as a JS library with `wasm-pack build --target bundler`
@@ -40,6 +39,7 @@ using tauri and node.js via `npm tauri build`.
     5. Link it to npm `npm link`
     6. Return back to main directory `cd ../../`
     7. Link it here too `npm link password-generator`
+4. Install npm packages, via `npm install`
 5. Build with `npm tauri build` (Release binary)
 
 # Contribution

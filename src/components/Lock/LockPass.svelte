@@ -27,3 +27,9 @@
     />
     <VisibilityButton {visible} callback={() => visible = !visible}></VisibilityButton>
 </div>
+
+<style>
+    input {
+        -webkit-text-security: none;
+    }
+</style>
