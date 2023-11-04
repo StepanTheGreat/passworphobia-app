@@ -1,16 +1,12 @@
 import { Store } from "tauri-plugin-store-api";
 import CryptoJS from "crypto-js";
-import { storeUserSalt } from "./store";
+import { SALT_SIZE, storeUserSalt } from "./store";
 
 export const confStore = new Store(".lang.dat");
 export const dataStore = new Store(".salt.dat");
 
-export function generateSalt(times: number) {
-    let uid: string = "";
-    for (let i = 0; i < times; i++) {
-        console.log(i);
-        uid += crypto.randomUUID().split("-").join("");
-    }
+export function generateSalt() {
+    let uid: string = CryptoJS.lib.WordArray.random(SALT_SIZE).toString(CryptoJS.enc.Base64);
     return uid;
 }
 
@@ -18,11 +14,16 @@ export async function hasAccount(): Promise<boolean> {
     return await dataStore.get("salt") != null;
 }
 
-export async function createAccount(password: string, withSalt: string = "")  {
-    let newSalt: string = withSalt? withSalt: generateSalt(2);
-    let encryptedSalt: string = CryptoJS.AES.encrypt(newSalt, password).toString();
+export function encryptSalt(password: string, salt: string): string {
+    let encryptedSalt: string = CryptoJS.AES.encrypt(salt, password).toString();
     let hmac = CryptoJS.HmacSHA256(encryptedSalt, CryptoJS.SHA256(password)).toString();
-    await dataStore.set("salt", hmac+encryptedSalt);
+    return hmac+encryptedSalt;
+}
+
+export async function createAccount(password: string, withSalt: string = "")  {
+    let newSalt: string = withSalt? withSalt: generateSalt();
+    let encryptedSalt: string = encryptSalt(password, newSalt);
+    await dataStore.set("salt", encryptedSalt);
     await dataStore.save();
     return newSalt;
 }

@@ -16,6 +16,7 @@ export const SYMBOLS: string = "!\"#$%&'()*+,-./:;<=>?@[]\\^_`{}|~";
 
 export const SIZE_FACTOR: number = 14;
 export const DEFAULT: number = 3;
+export const SALT_SIZE: number = 48;
 
 export let appState = writable(AppState.Lock);
 
