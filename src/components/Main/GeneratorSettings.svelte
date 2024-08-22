@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onDestroy } from "svelte";
-    import { storePassLength, SIZE_FACTOR, DEFAULT, storePassChars, NUMBERS, SYMBOLS, LETTERS } from "../../store";
+    import { storePassLength, DEFAULT_SIZE_INDEX, PASS_SIZES, storePassChars, NUMBERS, SYMBOLS, LETTERS } from "../../store";
     import { fillTable, langTable } from "../../lang";
 
     let hidden: boolean = true;
@@ -14,12 +14,12 @@
         settingsScharacters: ""
     };
     
-    let sizeValue: number = DEFAULT;
+    let sizeIndex: number = DEFAULT_SIZE_INDEX;
 
     let unsubscribeLang = langTable.subscribe(newTable => text = fillTable(text, newTable));
 
     function onChange() {
-        storePassLength.set(sizeValue*SIZE_FACTOR);
+        storePassLength.set(PASS_SIZES[sizeIndex]);
     }
 
     let chars: string = "";
@@ -63,13 +63,12 @@
     {#if !hidden}
         <div class="absolute bg-secondary rounded-lg w-64 -translate-x-24 flex flex-col p-2">
             <p class="text-text mb-1">{text.size}</p>
-            <select class="h-8 mb-4 rounded-md px-1 appearance-none text-text bg-primary" bind:value={sizeValue} on:change={onChange}>
-                {#each text.sizeHint as hint, index}
+            <select class="h-8 mb-4 rounded-md px-1 appearance-none text-text bg-primary" bind:value={sizeIndex} on:change={onChange}>
+                {#each PASS_SIZES as size, index}
                     <option
-                        value={index+1}
-                        selected={index+1 == DEFAULT}
-                    >{hint} ({(index+1)*SIZE_FACTOR})
-                    </option>
+                        value={index}
+                        selected={index == DEFAULT_SIZE_INDEX}
+                    >{text.sizeHint[index]} ({size})</option>
                 {/each}
             </select>
             <p class="text-text mb-2">{text.characters}</p>

@@ -2,6 +2,8 @@
     import { onDestroy } from "svelte";
     import { storePassInput, storePassOutput } from "../../store";
 
+    import { writeText } from '@tauri-apps/api/clipboard';
+
     export let type: string;
     let passOutput: string = "";
     let action: () => void;
@@ -10,13 +12,13 @@
 
     if (type == "copy") {
         action = () => {
-            navigator.clipboard.writeText(passOutput);
+            writeText(passOutput);
         };
     } else if (type == "delete") {
         action = () => {
             storePassOutput.set("");
             storePassInput.set("");
-            navigator.clipboard.writeText("");
+            writeText(" ");
         };
     } else {
         action = () => {};

@@ -1,7 +1,7 @@
 {
     "generator": {
         "size": "Password pikkus:",
-        "sizeHint": ["Väike", "Väike", "Keskmine", "Suur", "Väga suur"],
+        "sizeHint": ["Väike", "Väike", "Keskmine", "Suur", "Väga suur", "1024 bitti", "2048 bitti", "4096 bitti"],
         "characters": "Kasutusel olevad parool tähemargid:",
         "settingsNumbers": "Numbrid",
         "settingsScharacters": "Eriksümbolid",

@@ -1,7 +1,7 @@
 <script>
     import LangBtn from "../components/Main/LangBtn.svelte";
     import Title from "../components/Main/Title.svelte";
-import Settings from "../components/Settings/Settings.svelte";
+    import Settings from "../components/Settings/Settings.svelte";
     import SwitchState from "../components/SwitchState.svelte";
 </script>
 

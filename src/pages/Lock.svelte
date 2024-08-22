@@ -61,6 +61,15 @@
         });
     }
 
+    /** Will verify and submit passwords depending on the entry type*/
+    function submitPasswords() {
+        if (entryType == EntryType.New) {
+            openWithNewPass()
+        } else {
+            openWithExistingPass()
+        }  
+    }
+
     onDestroy(() => {
         unsubscribeLang();
     })
@@ -72,7 +81,14 @@
         <LangBtn></LangBtn>
         <Title></Title>
     </div>
-    <div class="flex flex-col">
+    <form class="flex flex-col"
+        on:keydown={e => {
+            if (e.key == "Enter") {
+                e.preventDefault()
+                submitPasswords()
+            }
+        }}
+    >
         <div class="w-fit h-fit m-auto">
             {#if entryType == EntryType.Existing}
                 <h2 class="text-text text-xl font-sen text-center mb-4">{text.enterOldPassword}</h2>
@@ -86,11 +102,11 @@
             <h2 class="text-danger italic text-center mb-2">{text[passwordError]}</h2>
             <button 
                 class="block bg-accent rounded-md text-text mx-auto px-4 py-1"
-                on:click={() => (entryType == EntryType.New)? openWithNewPass(): openWithExistingPass() }
+                on:click={submitPasswords}
             >{text.continue}</button>
             {/if}
         </div>
-    </div>
+    </form>
 </main>
 
 <style>

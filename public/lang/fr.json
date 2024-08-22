@@ -1,7 +1,7 @@
 {
     "generator": {
         "size": "Longeur du mot de passe:",
-        "sizeHint": ["Très petit", "Petit", "Moyen", "Grand", "Très grand"],
+        "sizeHint": ["Très petit", "Petit", "Moyen", "Grand", "Très grand", "1024 bits", "2048 bits", "4096 bits"],
         "characters": "Caractères du mot de passe utilisés:",
         "settingsNumbers": "Chiffres",
         "settingsScharacters": "Caractères spéciaux",
