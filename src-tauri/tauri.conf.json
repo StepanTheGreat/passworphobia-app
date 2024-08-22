@@ -44,7 +44,9 @@
         "resizable": true,
         "title": "Passworphobia",
         "width": 768,
-        "height": 640
+        "height": 640,
+        "minWidth": 768,
+        "minHeight": 640
       }
     ]
   }
