@@ -129,7 +129,14 @@
         </div>
     </div>
 
-    <div class="bg-secondary rounded-xl mx-auto w-fit px-16 py-8 mb-8">
+    <form class="bg-secondary rounded-xl mx-auto w-fit px-16 py-8 mb-8"
+        on:keydown={e => {
+            if (e.key == "Enter") {
+                e.preventDefault()
+                setNewPassword()
+            }
+        }}
+    >
         <h1 class="text-text text-4xl text-center">{text.password}</h1>
         <div class="my-4">
             <div class="mt-4 flex flex-col">
@@ -142,12 +149,19 @@
         <div class="w-full flex flex-col">
             <button class="bg-primary text-text px-8 py-2 rounded-md mx-auto" on:click={setNewPassword}>{text.apply}</button>
         </div>
-    </div>
+    </form>
 
-    <div class="w-full flex flex-col mb-8">
+    <form class="w-full flex flex-col mb-8"
+        on:keydown={e => {
+            if (e.key == "Enter") {
+                e.preventDefault()
+                saveSettings()
+            }
+        }}
+    >
         <p class="text-text italic text-center mb-2">{text.confirmPasswordHint}</p>
         <LockPass size={32} on:passInput={e => onPassInput(e, "old")}></LockPass>
         <p class="{confirmationHint.color} italic text-center mb-2">{text[confirmationHint.key]}</p>
         <button class="bg-accent text-text px-16 py-4 rounded-xl mx-auto" on:click={saveSettings}>{text.save}</button>
-    </div>
+    </form>
 </div>
