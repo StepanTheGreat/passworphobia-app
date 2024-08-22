@@ -16,7 +16,7 @@
         action = () => {
             storePassOutput.set("");
             storePassInput.set("");
-            navigator.clipboard.writeText("");
+            navigator.clipboard.writeText(" ");
         };
     } else {
         action = () => {};
