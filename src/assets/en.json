@@ -1,7 +1,7 @@
 {
     "generator": {
         "size": "Password length:",
-        "sizeHint": ["Tiny", "Small", "Medium", "Big", "Large"],
+        "sizeHint": ["Tiny", "Small", "Medium", "Big", "Large", "1024 bits", "2048 bits", "4096 bits"],
         "characters": "Password characters in use:",
         "settingsNumbers": "Numbers",
         "settingsScharacters": "Special characters",
