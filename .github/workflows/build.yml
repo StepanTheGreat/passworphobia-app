@@ -20,8 +20,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: install Rust stable
-        uses: dtolnay/rust-toolchain@stable
+      - name: install Rust 1.79.0
+        uses: dtolnay/rust-toolchain@1.79.0
 
       - name: go to password-generator
         run: cd $GITHUB_WORKSPACE
