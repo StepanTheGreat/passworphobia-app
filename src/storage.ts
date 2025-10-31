@@ -1,4 +1,4 @@
-import { Store } from "tauri-plugin-store-api";
+import { Store } from "@tauri-apps/plugin-store";
 import CryptoJS from "crypto-js";
 import { SALT_SIZE, storeUserSalt } from "./store";
 

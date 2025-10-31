@@ -2,7 +2,7 @@
     import { onDestroy } from "svelte";
     import { storePassInput, storePassOutput } from "../../store";
 
-    import { writeText } from '@tauri-apps/api/clipboard';
+    import { writeText } from '@tauri-apps/plugin-clipboard-manager';
 
     export let type: string;
     let passOutput: string = "";

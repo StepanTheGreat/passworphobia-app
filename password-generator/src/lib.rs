@@ -44,8 +44,8 @@ mod tests {
     #[test]
     fn empty_chars() {
         // Checks for null char behaviour
-        let gen = generate_password("password".to_owned(), "".to_owned(), 32);
-        assert_eq!(gen, "".to_owned());
+        let generated = generate_password("password".to_owned(), "".to_owned(), 32);
+        assert_eq!(generated, "".to_owned());
     }
 
     #[test]
