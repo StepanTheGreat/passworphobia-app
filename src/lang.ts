@@ -30,10 +30,6 @@ export function langLoad(newLang: string) {
     }
 }
 
-export function g(path: string) {
-    
-}
-
 /** Simply changes the `lang` key in the key store and saves the changes */ 
 export async function saveLang(lang: string) {
     await confStore.set("lang", lang);
