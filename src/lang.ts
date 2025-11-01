@@ -6,27 +6,32 @@ import { confStore } from "./storage";
 type LangSection = {[key: string]: string|string[]};
 type LangTable = {[key: string]: LangSection};
 
-const LANGS: string[] = ["en", "et", "fr", "ua", "ru"];
+const DEFAULT_LANG: string = "en";
+
+/** The list of all available languages */
+export const LANGUAGES: string[] = [DEFAULT_LANG, "et", "fr", "ua", "ru"];
 
 /** The current global language dictionary */
 export let langTable = writable(stdLang);
+
 /** The current global language identifier */
-export let currentLang = writable("en");
+export let currentLang = writable(DEFAULT_LANG);
 
 /** Will try to fetch a (lang).json file for the supplied language code, and if successful - will update the `langTable` and `currentLang` variables. */ 
 export function langLoad(newLang: string) {
-    if (LANGS.includes(newLang) && newLang != "en") {
-        fetch(
-            `./lang/${newLang}.json`
-        ).then(response => response.json().then(langObj => langTable.set(langObj))
-        ).catch(error => {
-            console.error("Error fetching JSON:", error);
-        });
+    if (LANGUAGES.includes(newLang) && newLang != DEFAULT_LANG) {
+        fetch(`./lang/${newLang}.json`)
+            .then(response => response.json().then(langObj => langTable.set(langObj)))
+            .catch(error => console.error("Error fetching JSON:", error));
         currentLang.set(newLang);
-    } else if (newLang == "en") {
-        currentLang.set("en");
+    } else if (newLang == DEFAULT_LANG) {
+        currentLang.set(DEFAULT_LANG);
         langTable.set(stdLang)
     }
+}
+
+export function g(path: string) {
+    
 }
 
 /** Simply changes the `lang` key in the key store and saves the changes */ 
@@ -38,7 +43,7 @@ export async function saveLang(lang: string) {
 /** Fetches the key store for the saved language, and if nothing is found (no language saved) - returns english (`en`) as the default language */ 
 export async function getLang(): Promise<string> {
     let lang: string | null = await confStore.get("lang");
-    return lang? lang : "en";
+    return lang? lang : DEFAULT_LANG;
 }
 
 /** Iterates over a dictionary object and translates its properties using the provided `newTable` language table. Returns a new translated object */ 

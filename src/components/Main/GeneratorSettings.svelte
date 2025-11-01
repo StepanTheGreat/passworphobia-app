@@ -1,7 +1,17 @@
 <script lang="ts">
     import { onDestroy } from "svelte";
-    import { storePassLength, DEFAULT_SIZE_INDEX, PASS_SIZES, storePassChars, NUMBERS, SYMBOLS, LETTERS } from "../../store";
+    import { PASS_SIZES, NUMBERS, SYMBOLS, LETTERS, DEFAULT_SYMBOLS, DEFAULT_PASSWORD_SIZE } from "../../store";
     import { fillTable, langTable } from "../../lang";
+
+    interface GeneratorValues {
+        passwordChars: string,
+        passwordLength: number
+    }
+
+    export let value: GeneratorValues = {
+        passwordChars: DEFAULT_SYMBOLS,
+        passwordLength: DEFAULT_PASSWORD_SIZE
+    };
 
     let hidden: boolean = true;
 
@@ -13,39 +23,16 @@
         settingsNumbers: "",
         settingsScharacters: ""
     };
-    
-    let sizeIndex: number = DEFAULT_SIZE_INDEX;
+
 
     let unsubscribeLang = langTable.subscribe(newTable => text = fillTable(text, newTable));
 
-    function onChange() {
-        storePassLength.set(PASS_SIZES[sizeIndex]);
-    }
-
-    let chars: string = "";
     let numbersOn: boolean = true;
     let symbolsOn: boolean = false;
 
-    function turnSet(which: string) {
-        if (which == "numbers") {
-            numbersOn = !numbersOn;
-        } else if (which == "symbols") {
-            symbolsOn = !symbolsOn;
-        }
-
-        storePassChars.set(
-            LETTERS + (numbersOn? NUMBERS : "") + (symbolsOn? SYMBOLS : "")
-        );
-    }
-
-    let unsubscribe = storePassChars.subscribe(newChars => {
-        chars = newChars;
-        numbersOn = chars.includes(NUMBERS);
-        symbolsOn = chars.includes(SYMBOLS);
-    });
+    $: value.passwordChars = LETTERS + (numbersOn ? NUMBERS : "") + (symbolsOn ? SYMBOLS : "");
 
     onDestroy(() => {
-        unsubscribe();
         unsubscribeLang();
     });    
 </script>
@@ -63,21 +50,22 @@
     {#if !hidden}
         <div class="absolute bg-secondary rounded-lg w-64 -translate-x-24 flex flex-col p-2">
             <p class="text-text mb-1">{text.size}</p>
-            <select class="h-8 mb-4 rounded-md px-1 appearance-none text-text bg-primary" bind:value={sizeIndex} on:change={onChange}>
+
+            <select class="h-8 mb-4 rounded-md px-1 appearance-none text-text bg-primary" bind:value={value.passwordLength}>
                 {#each PASS_SIZES as size, index}
-                    <option
-                        value={index}
-                        selected={index == DEFAULT_SIZE_INDEX}
-                    >{text.sizeHint[index]} ({size})</option>
+                    <option value={size} selected={size == DEFAULT_PASSWORD_SIZE}>{text.sizeHint[index]} ({size})</option>
                 {/each}
             </select>
+
             <p class="text-text mb-2">{text.characters}</p>
+
             <div class="flex flex-row gap-1 mb-2">
-                <input class="w-6 h-6 accent-accent bg-text" bind:checked={numbersOn} type="checkbox" on:input={() => turnSet("numbers")}>
+                <input class="w-6 h-6 accent-accent bg-text" bind:checked={numbersOn} type="checkbox">
                 <p class="inline-block text-text">{text.settingsNumbers}</p>
             </div>
+
             <div class="flex flex-row gap-1">
-                <input class="w-6 h-6 accent-accent bg-text" bind:checked={symbolsOn} type="checkbox" on:input={() => turnSet("symbols")}>
+                <input class="w-6 h-6 accent-accent bg-text" bind:checked={symbolsOn} type="checkbox">
                 <p class="inline-block text-text">{text.settingsScharacters}</p>
             </div>
         </div>
