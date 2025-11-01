@@ -28,7 +28,7 @@ Additionaly featuring a customizable, basic character set and size list for pass
 
 # Building from source
 Unfortunately we're not planning on distributing to all linux distros (Currently only planning for debian), so you can clone our project and build it
-using tauri and node.js via `npm tauri build`.
+using tauri and node.js via `npm run tauri build`.
 
 1. Obviously, you should have both Rust *(We use 1.26)* and NodeJS *(We use 18.16)*
 2. Clone our repository `git clone https://github.com/StepanTheGreat/passworphobia-app`
@@ -41,7 +41,7 @@ using tauri and node.js via `npm tauri build`.
     6. Return back to main directory `cd ../../`
     7. Link it here too `npm link password-generator`
 4. Install npm packages, via `npm install`
-5. Build with `npm tauri build` (Release binary)
+5. Build with `npm run tauri build` (Release binary)
 
 # Contribution
 This is a private project, so we won't support any push requests. But we'll gladly look at bugs/issues or some minor features.

@@ -20,14 +20,16 @@ export const PASS_SIZES: number[] = [
     256, // 2048b
     512 // 4096b
 ]
-export const DEFAULT_SIZE_INDEX: number = 2;
+
+export const DEFAULT_PASSWORD_SIZE: number = PASS_SIZES[2];
+
+export const DEFAULT_SYMBOLS: string = LETTERS + NUMBERS;
+
+// Always use salting by default
+export const DEFAULT_NO_SALT: boolean = false;
+
 export const SALT_SIZE: number = 48;
 
 export let appState = writable(AppState.Lock);
-
-export let storePassInput = writable("");
-export let storePassOutput = writable("");
-export let storePassLength = writable(PASS_SIZES[DEFAULT_SIZE_INDEX]);
-export let storePassChars = writable(LETTERS+NUMBERS);
 
 export let storeUserSalt = writable("");

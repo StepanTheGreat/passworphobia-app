@@ -1,9 +1,9 @@
-import { Store } from "tauri-plugin-store-api";
+import { Store } from "@tauri-apps/plugin-store";
 import CryptoJS from "crypto-js";
 import { SALT_SIZE, storeUserSalt } from "./store";
 
-export const confStore = new Store(".lang.dat");
-export const dataStore = new Store(".salt.dat");
+export const confStore = await Store.load(".lang.dat");
+export const dataStore = await Store.load(".salt.dat");
 
 export function generateSalt() {
     let uid: string = CryptoJS.lib.WordArray.random(SALT_SIZE).toString(CryptoJS.enc.Base64);

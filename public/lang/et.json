@@ -6,7 +6,8 @@
         "settingsNumbers": "Numbrid",
         "settingsScharacters": "Eriksümbolid",
         "inputPlaceholder": "Sisestage oma saladuse fraas siia...",
-        "outputPlaceholder": "Teie loodud parool..."
+        "outputPlaceholder": "Teie loodud parool...",
+        "disableSalting": "Keela sool"
     },
     "lock": {
         "enterNewPassword": "Registreerige uus võti jätkamiseks",

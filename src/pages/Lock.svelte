@@ -1,11 +1,11 @@
 <script lang="ts">
     import { onDestroy } from "svelte";
-    import LockPass from "../components/Lock/LockPass.svelte";
     import Title from "../components/Main/Title.svelte";
     import { fillTable, langTable } from "../lang";
-    import { loadAccount, createAccount, hasAccount, loadSalt } from "../storage";
+    import { loadAccount, createAccount, hasAccount } from "../storage";
     import { AppState, appState, storeUserSalt } from "../store";
     import LangBtn from "../components/Main/LangBtn.svelte";
+    import PasswordInput from "../components/PasswordInput.svelte";
 
     enum EntryType {
         Loading,
@@ -28,33 +28,25 @@
 
     let unsubscribeLang = langTable.subscribe(newTable => text = fillTable(text, newTable));
 
-    let pass1: string = "";
-    let pass2: string = "";
+    let password1: string = "";
+    let password2: string = "";
     let passwordError: string = "";
 
-    function onPassInput(e: any, index: number) {
-        if (index == 0) {
-            pass1 = e.detail.value;
-        } else if (index == 1) {
-            pass2 = e.detail.value;
-        }
-    }
-
     function openWithNewPass() {
-        if (pass1 == pass2 && pass1 != "") {
-            createAccount(pass1).then(salt => {
+        if (password1 == password2 && password1 != "") {
+            createAccount(password1).then(salt => {
                 appState.set(AppState.Main);
                 storeUserSalt.set(salt);
             });
-        } else if (pass1 != pass2) {
+        } else if (password1 != password2) {
             passwordError = "notMatchingPasswords";
         } else {
             passwordError = "emptyPassword";
         }
-    }   
+    }
 
     function openWithExistingPass() {
-        loadAccount(pass1).then(() => {
+        loadAccount(password1).then(() => {
             appState.set(AppState.Main);
         }).catch(() => {
             passwordError = "incorrectPassword";
@@ -64,9 +56,9 @@
     /** Will verify and submit passwords depending on the entry type*/
     function submitPasswords() {
         if (entryType == EntryType.New) {
-            openWithNewPass()
+            openWithNewPass();
         } else {
-            openWithExistingPass()
+            openWithExistingPass();
         }  
     }
 
@@ -81,29 +73,19 @@
         <LangBtn></LangBtn>
         <Title></Title>
     </div>
-    <form class="flex flex-col"
-        on:keydown={e => {
-            if (e.key == "Enter") {
-                e.preventDefault()
-                submitPasswords()
-            }
-        }}
-    >
+    <form class="flex flex-col" on:submit|preventDefault={submitPasswords}>
         <div class="w-fit h-fit m-auto">
             {#if entryType == EntryType.Existing}
                 <h2 class="text-text text-xl font-sen text-center mb-4">{text.enterOldPassword}</h2>
-                <LockPass size={24} on:passInput={e => onPassInput(e, 0)}></LockPass>
+                <PasswordInput size={24} bind:value={password1}/>
             {:else if entryType == EntryType.New}
                 <h2 class="text-text text-xl font-sen text-center mb-4">{text.enterNewPassword}</h2>
-                <LockPass size={24} on:passInput={e => onPassInput(e, 0)}></LockPass>
-                <LockPass size={24} on:passInput={e => onPassInput(e, 1)}></LockPass>
+                <PasswordInput size={24} bind:value={password1}/>
+                <PasswordInput size={24} bind:value={password2}/>
             {/if}
             {#if entryType != EntryType.Loading}
-            <h2 class="text-danger italic text-center mb-2">{text[passwordError]}</h2>
-            <button 
-                class="block bg-accent rounded-md text-text mx-auto px-4 py-1"
-                on:click={submitPasswords}
-            >{text.continue}</button>
+                <h2 class="text-danger italic text-center mb-2">{text[passwordError]}</h2>
+                <button class="block bg-accent rounded-md text-text mx-auto px-4 py-1" type="submit">{text.continue}</button>
             {/if}
         </div>
     </form>

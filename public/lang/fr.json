@@ -6,7 +6,8 @@
         "settingsNumbers": "Chiffres",
         "settingsScharacters": "Caractères spéciaux",
         "inputPlaceholder": "Votre phrase secrète...",
-        "outputPlaceholder": "Votre mot de passe généré..."
+        "outputPlaceholder": "Votre mot de passe généré...",
+        "disableSalting": "Désactiver le sel"
     },
     "lock": {
         "enterNewPassword": "Enregistrez un mot de passe principal (2 fois) pour continuer",

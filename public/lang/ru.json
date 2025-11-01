@@ -6,7 +6,8 @@
         "settingsNumbers": "Цифры",
         "settingsScharacters": "Специальные символы",
         "inputPlaceholder": "Ваша секрет-фраза...",
-        "outputPlaceholder": "Ваш сгенерированный пароль..."
+        "outputPlaceholder": "Ваш сгенерированный пароль...",
+        "disableSalting": "Отключить соль"
     },
     "lock": {
         "enterNewPassword": "Зарегистрируйте мастер пароль (2 раза) чтобы продолжить",
