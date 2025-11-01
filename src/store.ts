@@ -22,7 +22,11 @@ export const PASS_SIZES: number[] = [
 ]
 
 export const DEFAULT_PASSWORD_SIZE: number = PASS_SIZES[2];
+
 export const DEFAULT_SYMBOLS: string = LETTERS + NUMBERS;
+
+// Always use salting by default
+export const DEFAULT_NO_SALT: boolean = false;
 
 export const SALT_SIZE: number = 48;
 

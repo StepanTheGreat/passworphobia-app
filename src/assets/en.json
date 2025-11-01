@@ -6,7 +6,8 @@
         "settingsNumbers": "Numbers",
         "settingsScharacters": "Special characters",
         "inputPlaceholder": "Your passphrase...",
-        "outputPlaceholder": "Your generated password..."
+        "outputPlaceholder": "Your generated password...",
+        "disableSalting": "Disable salt"
     },
     "lock": {
         "enterNewPassword": "Register a master password (2 times) to proceed",

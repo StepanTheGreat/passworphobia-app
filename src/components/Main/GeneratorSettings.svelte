@@ -1,16 +1,18 @@
 <script lang="ts">
     import { onDestroy } from "svelte";
-    import { PASS_SIZES, NUMBERS, SYMBOLS, LETTERS, DEFAULT_SYMBOLS, DEFAULT_PASSWORD_SIZE } from "../../store";
+    import { PASS_SIZES, NUMBERS, SYMBOLS, LETTERS, DEFAULT_SYMBOLS, DEFAULT_PASSWORD_SIZE, DEFAULT_NO_SALT } from "../../store";
     import { fillTable, langTable } from "../../lang";
 
     interface GeneratorValues {
         passwordChars: string,
-        passwordLength: number
+        passwordLength: number,
+        noSalt: boolean
     }
 
     export let value: GeneratorValues = {
         passwordChars: DEFAULT_SYMBOLS,
-        passwordLength: DEFAULT_PASSWORD_SIZE
+        passwordLength: DEFAULT_PASSWORD_SIZE,
+        noSalt: false
     };
 
     let hidden: boolean = true;
@@ -21,7 +23,8 @@
         characters: "",
         sizeHint: [],
         settingsNumbers: "",
-        settingsScharacters: ""
+        settingsScharacters: "",
+        disableSalting: ""
     };
 
 
@@ -29,8 +32,10 @@
 
     let numbersOn: boolean = true;
     let symbolsOn: boolean = false;
+    let saltOff:    boolean = false;
 
     $: value.passwordChars = LETTERS + (numbersOn ? NUMBERS : "") + (symbolsOn ? SYMBOLS : "");
+    $: value.noSalt = saltOff;
 
     onDestroy(() => {
         unsubscribeLang();
@@ -64,9 +69,14 @@
                 <p class="inline-block text-text">{text.settingsNumbers}</p>
             </div>
 
-            <div class="flex flex-row gap-1">
+            <div class="flex flex-row gap-1 mb-2">
                 <input class="w-6 h-6 accent-accent bg-text" bind:checked={symbolsOn} type="checkbox">
                 <p class="inline-block text-text">{text.settingsScharacters}</p>
+            </div>
+
+            <div class="flex flex-row gap-1">
+                <input class="w-6 h-6 accent-accent bg-text" bind:checked={saltOff} type="checkbox">
+                <p class="inline-block text-text">{text.disableSalting}</p>
             </div>
         </div>
     {/if}

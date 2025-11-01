@@ -1,6 +1,6 @@
 <script lang="ts">
     import PassButton from "./PassButton.svelte";
-    import { DEFAULT_PASSWORD_SIZE, storeUserSalt, DEFAULT_SYMBOLS } from "../../store";
+    import { DEFAULT_PASSWORD_SIZE, storeUserSalt, DEFAULT_SYMBOLS, DEFAULT_NO_SALT } from "../../store";
     import { onDestroy } from "svelte";
     import GeneratorSettings from "./GeneratorSettings.svelte";
     import PasswordInput from "../PasswordInput.svelte";
@@ -11,12 +11,14 @@
 
     interface GeneratorValues {
         passwordChars: string,
-        passwordLength: number
+        passwordLength: number,
+        noSalt: boolean
     }
     
     let genSettings: GeneratorValues = {
         passwordLength: DEFAULT_PASSWORD_SIZE,
-        passwordChars: DEFAULT_SYMBOLS
+        passwordChars: DEFAULT_SYMBOLS,
+        noSalt: DEFAULT_NO_SALT
     };
 
     let passwordSalt: string = "";
@@ -24,7 +26,18 @@
     let outputPassword: string = "";
     let inputPassword: string = "";
 
-    $: outputPassword = (inputPassword) ? genPassword(inputPassword, passwordSalt, genSettings.passwordChars, genSettings.passwordLength) : "";
+    $: {
+        if (inputPassword == "") {
+            outputPassword = "";
+        } else {
+            outputPassword = genPassword(
+                inputPassword, // Our input pass-phrase
+                (genSettings.noSalt ? "" : passwordSalt), // Salt (if not disabled) 
+                genSettings.passwordChars, // Characters to generate with
+                genSettings.passwordLength // The expected length
+            );
+        }
+    }
 
     let text: {[key: string]: string} = {
         "":"",
