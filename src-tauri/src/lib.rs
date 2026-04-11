@@ -1,4 +1,4 @@
-// Copyright © 2023 Perfect Duo. All rights reserved.
+// Copyright © 2023 StepanTheGreat. All rights reserved.
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {

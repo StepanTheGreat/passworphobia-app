@@ -2,7 +2,7 @@
 name = "passworphobia-app"
 version = "1.3.0"
 description = "A passwordless password manager"
-authors = ["Perfect Duo"]
+authors = ["StepanTheGreat"]
 license = ""
 repository = ""
 edition = "2021"
