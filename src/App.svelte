@@ -1,4 +1,4 @@
-<!-- Copyright © 2023 Perfect Duo. All rights reserved. -->
+<!-- Copyright © 2023 StepanTheGreat. All rights reserved. -->
 
 <script lang="ts">
 	import { onDestroy } from "svelte";
